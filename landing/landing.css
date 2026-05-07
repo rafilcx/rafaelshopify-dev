@@ -2565,7 +2565,7 @@
     position: absolute;
     left: 84px;
     top: 38px;
-    bottom: 220px;
+    bottom: 300px;
     width: 1px;
     background: linear-gradient(180deg,
       rgba(149,242,15,0.50) 0%,
@@ -2586,7 +2586,7 @@
     position: absolute;
     left: 84px;
     top: 38px;
-    bottom: 220px;
+    bottom: 300px;
     width: 0;
     z-index: 2;
     pointer-events: none;
