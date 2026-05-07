@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Tittanium · Rafael Silva — Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="tokens.css" />
+
+<style>
+  body { margin: 0; background: #050608; }
+  /* Override design-canvas bg to ink */
+  .dc-bg-override { background: #050608 !important; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="foundation-cards.jsx"></script>
+<script type="text/babel" src="hero-section.jsx"></script>
+<script type="text/babel" src="systems-map-section.jsx"></script>
+<script type="text/babel" src="case-study-section.jsx"></script>
+
+<script type="text/babel" data-presets="env,react">
+  // Override the canvas background to the dark ink color
+  if (typeof DC !== "undefined") {
+    DC.bg = "#050608";
+    DC.grid = "rgba(255, 255, 255, 0.03)";
+    DC.label = "rgba(220, 220, 220, 0.7)";
+    DC.title = "rgba(245, 245, 244, 0.9)";
+    DC.subtitle = "rgba(180, 180, 180, 0.6)";
+  }
+
+  const App = () => (
+    <DesignCanvas>
+      <DCSection
+        id="foundation"
+        title="Tittanium · Operating System"
+        subtitle="Linguagem visual para a presença digital de Rafael Silva — Shopify, IA & Sistemas para E-commerce."
+      >
+        <DCArtboard id="cover"      label="00 · Cover"        width={1200} height={760}><FoundationCover /></DCArtboard>
+        <DCArtboard id="principles" label="01 · Principles"   width={1200} height={760}><Principles /></DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="tokens"
+        title="Tokens"
+        subtitle="Cor e tipografia — fundação para qualquer composição."
+      >
+        <DCArtboard id="color" label="02 · Color"      width={1200} height={760}><ColorSystem /></DCArtboard>
+        <DCArtboard id="type"  label="03 · Typography" width={1200} height={760}><TypeSystem /></DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="components"
+        title="Components"
+        subtitle="Buttons, badges, métricas, cards e linhas de comando."
+      >
+        <DCArtboard id="components" label="04 · Components" width={1200} height={760}><ComponentsCard /></DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="sections"
+        title="Marquee Sections"
+        subtitle="Três previews de seção aplicando o sistema completo. Dimensões 1440×900 (desktop)."
+      >
+        <DCArtboard id="hero"     label="A · Hero · Operator Dashboard" width={1440} height={900}><HeroSection /></DCArtboard>
+        <DCArtboard id="map"      label="B · Systems Map · Flow"        width={1440} height={900}><SystemsMapSection /></DCArtboard>
+        <DCArtboard id="case"     label="C · Case Study · Dashboard"    width={1440} height={900}><CaseStudySection /></DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

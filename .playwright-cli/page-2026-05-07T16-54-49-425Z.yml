@@ -1,0 +1,641 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: R
+      - generic [ref=e7]: RAFAEL SILVA
+    - generic [ref=e8]:
+      - link "Shopify" [ref=e9] [cursor=pointer]:
+        - /url: "#sistemas"
+      - link "Operação" [ref=e10] [cursor=pointer]:
+        - /url: "#flow"
+      - link "Dados" [ref=e11] [cursor=pointer]:
+        - /url: "#dashboard"
+      - link "Projetos" [ref=e12] [cursor=pointer]:
+        - /url: "#projetos"
+      - link "Trajetória" [ref=e13] [cursor=pointer]:
+        - /url: "#evolucao"
+      - link "Stack" [ref=e14] [cursor=pointer]:
+        - /url: "#stack"
+    - generic [ref=e15]: Aberto a projetos
+    - link "Conversar" [ref=e17] [cursor=pointer]:
+      - /url: "#contato"
+  - main [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: "[01]"
+          - generic [ref=e25]: SHOPIFY DEVELOPER · E-COMMERCE SYSTEMS · SP · BR
+        - heading "Lojas Shopify preparadas para vender melhor" [level=1] [ref=e26]:
+          - generic [ref=e28]: Lojas Shopify preparadas
+          - generic [ref=e30]: para vender melhor
+        - paragraph [ref=e31]: Desenvolvo lojas, páginas e experiências comerciais para e-commerces que precisam unir design, dados, IA e operação.
+        - generic [ref=e32]:
+          - link "Conversar sobre um projeto" [ref=e33] [cursor=pointer]:
+            - /url: "#contato"
+            - text: Conversar sobre um projeto
+            - img [ref=e34]
+          - link "Ver projetos aplicados" [ref=e36] [cursor=pointer]:
+            - /url: "#projetos"
+            - text: Ver projetos aplicados
+            - img [ref=e37]
+        - generic [ref=e39]:
+          - generic [ref=e40]: Shopify Dev
+          - generic [ref=e41]: Product Pages
+          - generic [ref=e42]: Landing Pages
+          - generic [ref=e43]: UX/UI
+          - generic [ref=e44]: Dashboards
+          - generic [ref=e45]: AI & Automação
+        - generic [ref=e48]: Rafael Silva
+      - generic [ref=e50]:
+        - img
+        - generic [ref=e51]:
+          - img [ref=e57]:
+            - generic [ref=e59]: S
+          - generic [ref=e60]:
+            - generic [ref=e61]: SHOPIFY
+            - generic [ref=e62]: ECOSSISTEMA
+        - generic [ref=e63]:
+          - img [ref=e69]
+          - generic [ref=e75]:
+            - generic [ref=e76]: IA APLICADA
+            - generic [ref=e77]: INTELIGÊNCIA
+        - generic [ref=e78]:
+          - img [ref=e84]
+          - generic [ref=e89]:
+            - generic [ref=e90]: DADOS
+            - generic [ref=e91]: ESTRUTURADOS
+        - generic [ref=e92]:
+          - img [ref=e98]
+          - generic [ref=e102]:
+            - generic [ref=e103]: AUTOMAÇÕES
+            - generic [ref=e104]: WORKFLOWS
+        - generic [ref=e105]:
+          - img [ref=e111]
+          - generic [ref=e118]:
+            - generic [ref=e119]: DASHBOARD
+            - generic [ref=e120]: EXECUTIVO
+        - generic [ref=e121]:
+          - img [ref=e127]
+          - generic [ref=e131]:
+            - generic [ref=e132]: CREATIVE
+            - generic [ref=e133]: PERFORMANCE
+        - generic [ref=e134]:
+          - generic [ref=e139]: OS
+          - generic [ref=e140]:
+            - text: SHOPIFY +
+            - text: INTELIGÊNCIA
+        - generic [ref=e142]: SHOPIFY · OPERAÇÃO
+        - generic [ref=e144]:
+          - img [ref=e150]
+          - generic [ref=e153]:
+            - text: RAFAEL SILVA
+            - text: SYSTEMS BUILDER
+    - generic [ref=e156]:
+      - generic [ref=e159]: Shopify
+      - generic [ref=e162]: Dashboards
+      - generic [ref=e165]: AI Automation
+      - generic [ref=e168]: Creative Performance
+      - generic [ref=e171]: Data Systems
+      - generic [ref=e174]: Supabase
+      - generic [ref=e177]: Vercel
+      - generic [ref=e180]: Next.js
+      - generic [ref=e183]: Obsidian
+      - generic [ref=e186]: Process Automation
+      - generic [ref=e189]: E-commerce OS
+      - generic [ref=e192]: Shopify
+      - generic [ref=e195]: Dashboards
+      - generic [ref=e198]: AI Automation
+      - generic [ref=e201]: Creative Performance
+      - generic [ref=e204]: Data Systems
+      - generic [ref=e207]: Supabase
+      - generic [ref=e210]: Vercel
+      - generic [ref=e213]: Next.js
+      - generic [ref=e216]: Obsidian
+      - generic [ref=e219]: Process Automation
+      - generic [ref=e222]: E-commerce OS
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - generic [ref=e227]: "[02]"
+          - generic [ref=e229]: O QUE EU CONSTRUO
+        - heading "O que eu construo para e-commerces" [level=2] [ref=e231]:
+          - text: O que eu construo
+          - text: para e-commerces
+        - paragraph [ref=e232]: Shopify primeiro. Dados, IA e sistemas como camada de inteligência para vender e operar melhor.
+      - generic [ref=e233]:
+        - article [ref=e234]:
+          - generic [ref=e239]:
+            - img [ref=e241]:
+              - generic [ref=e243]: S
+            - generic [ref=e244]: "[ 01 ]"
+          - generic [ref=e245]: Oferta principal
+          - heading "Shopify Development" [level=3] [ref=e246]
+          - paragraph [ref=e247]: Temas, seções, PDPs e landing pages com base comercial, performance e autonomia para a operação.
+          - generic [ref=e248]:
+            - generic [ref=e249]: Themes
+            - generic [ref=e250]: PDPs
+            - generic [ref=e251]: Performance
+        - generic [ref=e252]:
+          - article [ref=e253]:
+            - generic [ref=e258]:
+              - img [ref=e260]
+              - generic [ref=e264]: "[ 02 ]"
+            - generic [ref=e265]: Conversão
+            - heading "Product Pages & Landing Pages" [level=3] [ref=e266]
+            - paragraph [ref=e267]: Páginas criadas para vender melhor, com hierarquia clara, CTAs certos e fricção reduzida.
+            - generic [ref=e268]:
+              - generic [ref=e269]: PDP
+              - generic [ref=e270]: Landing
+              - generic [ref=e271]: CRO
+          - article [ref=e272]:
+            - generic [ref=e277]:
+              - img [ref=e279]
+              - generic [ref=e283]: "[ 03 ]"
+            - generic [ref=e284]: Decisão de compra
+            - heading "UX/UI para E-commerce" [level=3] [ref=e285]
+            - paragraph [ref=e286]: Interface mobile-first, clara e orientada à decisão de compra.
+            - generic [ref=e287]:
+              - generic [ref=e288]: UX/UI
+              - generic [ref=e289]: Mobile-first
+          - article [ref=e290]:
+            - generic [ref=e295]:
+              - img [ref=e297]
+              - generic [ref=e303]: "[ 04 ]"
+            - generic [ref=e304]: Leitura operacional
+            - heading "Dashboards & Dados" [level=3] [ref=e305]
+            - paragraph [ref=e306]: Métricas consolidadas para transformar operação em leitura e prioridade.
+            - generic [ref=e307]:
+              - generic [ref=e308]: GA4
+              - generic [ref=e309]: Dashboards
+          - article [ref=e310]:
+            - generic [ref=e315]:
+              - img [ref=e317]
+              - generic [ref=e322]: "[ 05 ]"
+            - generic [ref=e323]: Camada de inteligência
+            - heading "IA, Automação & Creative Performance" [level=3] [ref=e324]
+            - paragraph [ref=e325]: Fluxos para copy, briefing, documentação, criativos e decisões com mais contexto.
+            - generic [ref=e326]:
+              - generic [ref=e327]: IA
+              - generic [ref=e328]: Creative
+              - generic [ref=e329]: Ops
+      - link "Ver projetos aplicados" [ref=e331] [cursor=pointer]:
+        - /url: "#projetos"
+        - text: Ver projetos aplicados
+        - img [ref=e332]
+    - generic [ref=e335]:
+      - generic [ref=e336]:
+        - generic [ref=e337]:
+          - generic [ref=e338]: "[03]"
+          - generic [ref=e340]: OPERATIONAL FLOW
+        - generic [ref=e341]:
+          - heading "Uma operação conectada, não peças soltas." [level=2] [ref=e342]:
+            - text: Uma operação conectada,
+            - text: não peças soltas.
+          - generic [ref=e343]:
+            - generic [ref=e344]: SISTEMA EM EXECUÇÃO
+            - generic [ref=e346]: SHOPIFY → DADOS → IA → DASHBOARD → CRIATIVOS → DECISÃO
+        - paragraph [ref=e347]: "Shopify é a base comercial. Dados, IA, dashboard e criativos formam um loop: sinais viram leitura, leitura vira decisão, decisão volta para a loja."
+      - generic [ref=e348]:
+        - img [ref=e349]
+        - generic:
+          - generic: captura
+          - generic: interpreta
+          - generic: prioriza
+          - generic: transforma
+          - generic: retorna
+        - generic [ref=e350]:
+          - generic [ref=e351]:
+            - generic [ref=e352]: "[01]"
+            - img [ref=e358]:
+              - generic [ref=e360]: S
+            - generic [ref=e361]:
+              - generic [ref=e362]: LOJA SHOPIFY
+              - generic [ref=e363]: Tema, PDPs, LPs e seções como base da venda.
+          - generic [ref=e364]:
+            - generic [ref=e365]: "[02]"
+            - img [ref=e371]
+            - generic [ref=e376]:
+              - generic [ref=e377]: DADOS
+              - generic [ref=e378]: Eventos e fontes conectadas para enxergar o que importa.
+          - generic [ref=e379]:
+            - generic [ref=e380]: "[03]"
+            - img [ref=e386]
+            - generic [ref=e392]:
+              - generic [ref=e393]: IA
+              - generic [ref=e394]: Análise, criação e documentação com mais velocidade.
+          - generic [ref=e395]:
+            - generic [ref=e396]: "[04]"
+            - img [ref=e402]
+            - generic [ref=e409]:
+              - generic [ref=e410]: DASHBOARD
+              - generic [ref=e411]: Métricas viram leitura, prioridade e ação.
+          - generic [ref=e412]:
+            - generic [ref=e413]: "[05]"
+            - img [ref=e419]
+            - generic [ref=e423]:
+              - generic [ref=e424]: CRIATIVOS
+              - generic [ref=e425]: Hipóteses, copies e variações com contexto real.
+          - generic [ref=e426]:
+            - generic [ref=e427]: "[06]"
+            - img [ref=e433]
+            - generic [ref=e438]:
+              - generic [ref=e439]: DECISÃO
+              - generic [ref=e440]: Próximos passos para loja, produto e campanha.
+        - generic [ref=e442]:
+          - generic [ref=e443]: ↺
+          - text: FEEDBACK LOOP · DECISÃO RETORNA PARA SHOPIFY, PRODUTO & CAMPANHA
+        - generic [ref=e444]:
+          - generic [ref=e445]:
+            - generic [ref=e446]: INPUT
+            - generic [ref=e447]: Operação dispersa · ferramentas isoladas · decisões por achismo
+          - img [ref=e450]
+          - generic [ref=e453]:
+            - generic [ref=e454]: OUTPUT
+            - generic [ref=e455]: Sistema operacional · leitura clara · ação mensurável
+    - generic [ref=e458]:
+      - generic [ref=e459]:
+        - generic [ref=e460]:
+          - generic [ref=e461]: "[04]"
+          - generic [ref=e463]: DASHBOARD · DATA SYSTEMS
+        - heading "Clareza operacional em vez de dados espalhados." [level=2] [ref=e464]:
+          - text: Clareza operacional
+          - text: em vez de
+          - text: dados espalhados.
+        - paragraph [ref=e465]: "Camada de leitura para a operação Shopify: dashboards que viram métrica em prioridade e prioridade em ação. Shopify, GA4, RD Station, Supabase e Sheets em uma superfície única de decisão."
+        - generic [ref=e466]:
+          - generic [ref=e467]:
+            - generic [ref=e468]: PROBLEMA
+            - generic [ref=e469]: Métricas em 6 ferramentas, decisão lenta e por intuição.
+          - generic [ref=e470]:
+            - generic [ref=e471]: SISTEMA
+            - generic [ref=e472]: Dashboard executivo com pipelines normalizados e KPIs comerciais.
+          - generic [ref=e473]:
+            - generic [ref=e474]: VALOR
+            - generic [ref=e475]: Reuniões mais curtas, prioridade clara e uma leitura para o time inteiro.
+        - generic [ref=e476]:
+          - generic [ref=e477]: Shopify
+          - generic [ref=e478]: GA4
+          - generic [ref=e479]: Supabase
+          - generic [ref=e480]: RD Station
+          - generic [ref=e481]: Next.js
+          - generic [ref=e482]: Vercel
+      - generic [ref=e484]:
+        - generic [ref=e489]:
+          - generic [ref=e490]:
+            - generic [ref=e491]: Dashboard Executivo
+            - generic [ref=e493]: PREVIEW · DADOS ILUSTRATIVOS
+          - generic [ref=e494]:
+            - generic [ref=e495]: PERÍODO
+            - generic [ref=e496]: 30 DIAS ▾
+        - generic [ref=e497]:
+          - generic [ref=e498]:
+            - generic [ref=e499]: RECEITA
+            - generic [ref=e500]: R$ 1,268M
+            - generic [ref=e501]: ▲ +18.6%
+          - generic [ref=e502]:
+            - generic [ref=e503]: PEDIDOS
+            - generic [ref=e504]: "24.382"
+            - generic [ref=e505]: ▲ +14.2%
+          - generic [ref=e506]:
+            - generic [ref=e507]: CONVERSÃO
+            - generic [ref=e508]: 2,81%
+            - generic [ref=e509]: ▲ +12.7%
+          - generic [ref=e510]:
+            - generic [ref=e511]: TICKET MÉDIO
+            - generic [ref=e512]: R$ 198,40
+            - generic [ref=e513]: ▲ +9.3%
+        - generic [ref=e514]:
+          - generic [ref=e515]:
+            - generic [ref=e516]:
+              - generic [ref=e517]: EVOLUÇÃO DA RECEITA
+              - generic [ref=e518]:
+                - generic [ref=e519]: RECEITA
+                - generic [ref=e521]: META
+            - img [ref=e523]:
+              - generic [ref=e528]: 01/05
+              - generic [ref=e529]: 08/05
+              - generic [ref=e530]: 15/05
+              - generic [ref=e531]: 22/05
+              - generic [ref=e532]: 29/05
+          - generic [ref=e533]:
+            - generic [ref=e535]: FUNIL DE CONVERSÃO
+            - generic [ref=e536]:
+              - generic [ref=e537]:
+                - generic [ref=e538]: SESSÕES
+                - generic [ref=e540]: "356.214"
+              - generic [ref=e541]:
+                - generic [ref=e542]: CARRINHO
+                - generic [ref=e544]: "18.742"
+              - generic [ref=e545]:
+                - generic [ref=e546]: CHECKOUT
+                - generic [ref=e548]: "6.231"
+              - generic [ref=e549]:
+                - generic [ref=e550]: PEDIDOS
+                - generic [ref=e552]: "4.892"
+        - generic [ref=e553]:
+          - generic [ref=e554]:
+            - generic [ref=e556]: PRODUTOS EM DESTAQUE
+            - generic [ref=e558]:
+              - generic [ref=e559]: Produto Alpha
+              - generic [ref=e560]: R$ 342.870
+            - generic [ref=e563]:
+              - generic [ref=e564]: Produto Beta
+              - generic [ref=e565]: R$ 278.450
+            - generic [ref=e568]:
+              - generic [ref=e569]: Produto Gamma
+              - generic [ref=e570]: R$ 188.230
+            - generic [ref=e573]:
+              - generic [ref=e574]: Produto Delta
+              - generic [ref=e575]: R$ 112.430
+          - generic [ref=e577]:
+            - img [ref=e578]:
+              - generic [ref=e585]: 100%
+              - generic [ref=e586]: CHANNELS
+            - generic [ref=e587]:
+              - generic [ref=e589]: CANAIS DE AQUISIÇÃO
+              - generic [ref=e590]:
+                - generic [ref=e591]: Paid Ads
+                - generic [ref=e593]: 48%
+              - generic [ref=e594]:
+                - generic [ref=e595]: Orgânico
+                - generic [ref=e597]: 28%
+              - generic [ref=e598]:
+                - generic [ref=e599]: Direto
+                - generic [ref=e601]: 14%
+              - generic [ref=e602]:
+                - generic [ref=e603]: Email
+                - generic [ref=e605]: 7%
+              - generic [ref=e606]:
+                - generic [ref=e607]: Outros
+                - generic [ref=e609]: 3%
+    - generic [ref=e611]:
+      - generic [ref=e612]:
+        - generic [ref=e613]:
+          - generic [ref=e614]: "[05]"
+          - generic [ref=e616]: EXPERIÊNCIA REAL
+        - heading "Projetos aplicados em operações reais de e-commerce." [level=2] [ref=e618]:
+          - text: Projetos aplicados
+          - text: em operações reais de e-commerce.
+        - paragraph [ref=e619]: Desenvolvimento Shopify e páginas comerciais como núcleo do trabalho — e, em paralelo, sistemas que ampliam dados, operação e velocidade criativa.
+      - generic [ref=e620]:
+        - generic [ref=e621]: CLIENTES & COLABORAÇÕES
+        - generic [ref=e622]:
+          - link "Kabak — abrir site em nova aba" [ref=e623] [cursor=pointer]:
+            - /url: https://www.kabak.com.br
+            - generic [ref=e624]: Kabak
+            - img [ref=e625]
+          - link "Just Beauty — abrir site em nova aba" [ref=e627] [cursor=pointer]:
+            - /url: https://www.justbeauty.com.br
+            - generic [ref=e628]: Just Beauty
+            - img [ref=e629]
+          - link "Sincere — abrir site em nova aba" [ref=e631] [cursor=pointer]:
+            - /url: https://sincere.com.br
+            - generic [ref=e632]: Sincere
+            - img [ref=e633]
+          - link "Relaxmedic — abrir site em nova aba" [ref=e635] [cursor=pointer]:
+            - /url: https://relaxmedic.com.br
+            - generic [ref=e636]: Relaxmedic
+            - img [ref=e637]
+          - link "Vista Beagle — abrir site em nova aba" [ref=e639] [cursor=pointer]:
+            - /url: https://vistabeagle.com.br
+            - generic [ref=e640]: Vista Beagle
+            - img [ref=e641]
+          - link "Store Dot — abrir site em nova aba" [ref=e643] [cursor=pointer]:
+            - /url: https://storedot.com.br
+            - generic [ref=e644]: Store Dot
+            - img [ref=e645]
+          - link "Tittanium — abrir site em nova aba" [ref=e647] [cursor=pointer]:
+            - /url: https://tittanium.ag
+            - generic [ref=e648]: Tittanium
+            - img [ref=e649]
+          - link "Lionz Clothes — abrir site em nova aba" [ref=e651] [cursor=pointer]:
+            - /url: https://lionzclothes.com.br
+            - generic [ref=e652]: Lionz Clothes
+            - img [ref=e653]
+      - generic [ref=e655]:
+        - article [ref=e656]:
+          - generic [ref=e661]:
+            - generic [ref=e662]: "[ 01 ]"
+            - generic [ref=e663]: SHOPIFY · COMMERCE
+          - heading "Shopify Projects" [level=3] [ref=e664]
+          - generic [ref=e665]:
+            - generic [ref=e666]:
+              - generic [ref=e667]: PROBLEMA
+              - generic [ref=e668]: Lojas Shopify com seções rígidas, PDPs frias, landings genéricas e dependência de dev a cada ajuste de marketing.
+            - generic [ref=e669]:
+              - generic [ref=e670]: SISTEMA
+              - generic [ref=e671]: Temas Shopify com sections modulares, page builders internos, product pages e landing pages construídas para converter.
+            - generic [ref=e672]:
+              - generic [ref=e673]: VALOR
+              - generic [ref=e674]: Loja escalável, marketing publicando sem fila técnica e páginas comerciais que vendem — não só decoram.
+          - generic [ref=e675]:
+            - generic [ref=e676]: Liquid
+            - generic [ref=e677]: Theme Sections
+            - generic [ref=e678]: PDP
+            - generic [ref=e679]: Landing
+          - generic [ref=e680] [cursor=pointer]:
+            - generic [ref=e681]: Ver detalhes
+            - img [ref=e682]
+        - article [ref=e684]:
+          - generic [ref=e689]:
+            - generic [ref=e690]: "[ 02 ]"
+            - generic [ref=e691]: DATA · INTELLIGENCE
+          - heading "Dashboard Agência" [level=3] [ref=e692]
+          - generic [ref=e693]:
+            - generic [ref=e694]:
+              - generic [ref=e695]: PROBLEMA
+              - generic [ref=e696]: Dados espalhados em 6 ferramentas, sem leitura comercial unificada.
+            - generic [ref=e697]:
+              - generic [ref=e698]: SISTEMA
+              - generic [ref=e699]: Dashboard em Next.js com pipelines do Supabase, GA4 e RD Station normalizados.
+            - generic [ref=e700]:
+              - generic [ref=e701]: VALOR
+              - generic [ref=e702]: Reunião semanal mais curta e priorização clara entre canais.
+          - generic [ref=e703]:
+            - generic [ref=e704]: Next.js
+            - generic [ref=e705]: Supabase
+            - generic [ref=e706]: GA4
+            - generic [ref=e707]: RD Station
+          - generic [ref=e708] [cursor=pointer]:
+            - generic [ref=e709]: Ver detalhes
+            - img [ref=e710]
+        - article [ref=e712]:
+          - generic [ref=e717]:
+            - generic [ref=e718]: "[ 03 ]"
+            - generic [ref=e719]: SHOPIFY · COMMERCE
+          - heading "Creative Performance OS" [level=3] [ref=e720]
+          - generic [ref=e721]:
+            - generic [ref=e722]:
+              - generic [ref=e723]: PROBLEMA
+              - generic [ref=e724]: Briefings, hipóteses e aprendizados criativos perdidos entre planilhas e Slacks.
+            - generic [ref=e725]:
+              - generic [ref=e726]: SISTEMA
+              - generic [ref=e727]: Base única de hipóteses, prompts, checklists e handoffs entre criação e mídia.
+            - generic [ref=e728]:
+              - generic [ref=e729]: VALOR
+              - generic [ref=e730]: Criativos rastreáveis, aprendizado que acumula e menos retrabalho entre rodadas.
+          - generic [ref=e731]:
+            - generic [ref=e732]: Hypothesis
+            - generic [ref=e733]: Briefing
+            - generic [ref=e734]: Handoff
+            - generic [ref=e735]: Variations
+          - generic [ref=e736] [cursor=pointer]:
+            - generic [ref=e737]: Ver detalhes
+            - img [ref=e738]
+        - article [ref=e740]:
+          - generic [ref=e745]:
+            - generic [ref=e746]: "[ 04 ]"
+            - generic [ref=e747]: DATA · INTELLIGENCE
+          - heading "AI System / Obsidian" [level=3] [ref=e748]
+          - generic [ref=e749]:
+            - generic [ref=e750]:
+              - generic [ref=e751]: PROBLEMA
+              - generic [ref=e752]: Conhecimento operacional disperso em docs antigos, Slacks e cabeças.
+            - generic [ref=e753]:
+              - generic [ref=e754]: SISTEMA
+              - generic [ref=e755]: Base operacional em Obsidian com prompts, playbooks e decisões versionadas.
+            - generic [ref=e756]:
+              - generic [ref=e757]: VALOR
+              - generic [ref=e758]: Operação que aprende com a própria história — onboarding em horas, não em semanas.
+          - generic [ref=e759]:
+            - generic [ref=e760]: Obsidian
+            - generic [ref=e761]: Prompt Eng.
+            - generic [ref=e762]: Playbooks
+            - generic [ref=e763]: Knowledge
+          - generic [ref=e764] [cursor=pointer]:
+            - generic [ref=e765]: Ver detalhes
+            - img [ref=e766]
+    - generic [ref=e769]:
+      - generic [ref=e770]:
+        - generic [ref=e771]:
+          - generic [ref=e772]: "[06]"
+          - generic [ref=e774]: TRAJETÓRIA
+        - heading "Do design ao Shopify Developer com visão de operação." [level=2] [ref=e776]:
+          - text: Do design ao Shopify Developer
+          - text: com visão de operação.
+        - paragraph [ref=e777]: Comecei no design e UX/UI, evoluí para front-end e Shopify, e hoje uso dados, IA e automação como camadas para construir lojas e páginas mais estratégicas.
+      - generic [ref=e778]:
+        - generic [ref=e779]:
+          - generic [ref=e780]: POR QUE ESSA COMBINAÇÃO EXISTE
+          - paragraph [ref=e781]: A trajetória não nasceu como stack. Nasceu do design, ganhou profundidade em Shopify e passou a incorporar dados, IA e automação para resolver problemas reais de loja.
+          - paragraph [ref=e782]: O resultado é um perfil que pensa interface, venda e operação no mesmo raciocínio.
+        - generic "Capítulos da trajetória profissional" [ref=e783]:
+          - article [ref=e784]:
+            - generic [ref=e786]: "01"
+            - generic [ref=e787]:
+              - generic [ref=e788]: Origem
+              - generic [ref=e789]: Design & UX/UI
+              - generic [ref=e790]: A base veio da hierarquia visual, da experiência de compra e do olhar para conversão.
+          - article [ref=e791]:
+            - generic [ref=e793]: "02"
+            - generic [ref=e794]:
+              - generic [ref=e795]: Centro
+              - generic [ref=e796]: Shopify Development
+              - generic [ref=e797]: "O repertório virou loja: Liquid, seções, PDPs, landing pages e arquitetura comercial."
+          - article [ref=e798]:
+            - generic [ref=e800]: "03"
+            - generic [ref=e801]:
+              - generic [ref=e802]: Leitura
+              - generic [ref=e803]: Dados & Dashboards
+              - generic [ref=e804]: Métricas entraram para transformar comportamento, campanhas e produto em decisão mais clara.
+          - article [ref=e805]:
+            - generic [ref=e807]: "04"
+            - generic [ref=e808]:
+              - generic [ref=e809]: Camada atual
+              - generic [ref=e810]: IA, Automação & Performance
+              - generic [ref=e811]: IA e automação aceleram análise, criação, documentação e melhoria contínua em e-commerce.
+    - generic [ref=e813]:
+      - generic [ref=e814]:
+        - generic [ref=e815]:
+          - generic [ref=e816]: "[07]"
+          - generic [ref=e818]: STACK
+        - heading "Stack conectado à operação real." [level=2] [ref=e820]:
+          - text: Stack conectado
+          - text: à operação real.
+        - paragraph [ref=e821]: "Não é uma lista de ferramentas — é um conjunto integrado em torno do Shopify: páginas, dashboards, automações e fluxos que sustentam decisão comercial."
+      - generic [ref=e822]:
+        - generic [ref=e823]:
+          - generic [ref=e830]: Shopify & Front-end
+          - generic [ref=e831]:
+            - generic [ref=e832]: Shopify
+            - generic [ref=e833]: Theme Dev
+            - generic [ref=e834]: Liquid
+            - generic [ref=e835]: JavaScript
+            - generic [ref=e836]: HTML
+            - generic [ref=e837]: CSS
+            - generic [ref=e838]: React
+            - generic [ref=e839]: Next.js
+            - generic [ref=e840]: Git
+            - generic [ref=e841]: GitHub
+            - generic [ref=e842]: Vercel
+        - generic [ref=e843]:
+          - generic [ref=e850]: Dados & Dashboards
+          - generic [ref=e851]:
+            - generic [ref=e852]: GA4
+            - generic [ref=e853]: Supabase
+            - generic [ref=e854]: PostgreSQL
+            - generic [ref=e855]: Google Sheets
+            - generic [ref=e856]: Data Analysis
+            - generic [ref=e857]: Dashboards
+            - generic [ref=e858]: RD Station
+        - generic [ref=e859]:
+          - generic [ref=e866]: IA & Automação
+          - generic [ref=e867]:
+            - generic [ref=e868]: OpenAI
+            - generic [ref=e869]: Claude
+            - generic [ref=e870]: Prompt Eng.
+            - generic [ref=e871]: AI Automation
+            - generic [ref=e872]: Obsidian
+            - generic [ref=e873]: Knowledge Mgmt
+            - generic [ref=e874]: Process Automation
+        - generic [ref=e875]:
+          - generic [ref=e882]: Performance Criativa
+          - generic [ref=e883]:
+            - generic [ref=e884]: Creative Performance
+            - generic [ref=e885]: Landing Pages
+            - generic [ref=e886]: Product Pages
+            - generic [ref=e887]: Ads Copy
+            - generic [ref=e888]: CRO
+            - generic [ref=e889]: UX/UI Design
+            - generic [ref=e890]: Web Design
+    - generic [ref=e891]:
+      - generic [ref=e892]:
+        - img
+        - generic [ref=e893]:
+          - generic [ref=e894]: "[08]"
+          - generic [ref=e896]: VAMOS CONVERSAR
+        - heading "Vamos preparar sua loja Shopify para vender melhor" [level=2] [ref=e897]:
+          - text: Vamos preparar sua loja Shopify
+          - text: para vender melhor
+        - paragraph [ref=e898]: Lojas, páginas e experiências comerciais com design, dados, IA e operação trabalhando juntos para transformar tráfego em decisão e venda.
+        - generic [ref=e899]:
+          - link "Vamos conversar" [ref=e900] [cursor=pointer]:
+            - /url: mailto:rafael@tittanium.com
+            - text: Vamos conversar
+            - img [ref=e901]
+          - link "Ver perfil no LinkedIn" [ref=e903] [cursor=pointer]:
+            - /url: "#"
+            - text: Ver perfil no LinkedIn
+            - img [ref=e904]
+        - generic [ref=e906]:
+          - generic [ref=e907]: DISPONÍVEL · Q2 2026
+          - generic [ref=e909]: ·
+          - generic [ref=e910]: SÃO PAULO · BR · REMOTO
+          - generic [ref=e911]: ·
+          - generic [ref=e912]: RESP. EM ATÉ 48H
+      - generic [ref=e914]:
+        - generic [ref=e916]:
+          - generic [ref=e917]: R
+          - generic [ref=e918]:
+            - generic [ref=e919]: RAFAEL SILVA
+            - generic [ref=e920]: TITTANIUM · SYSTEMS BUILDER
+        - generic [ref=e921]: © 2026 · Construído como sistema, não como página.
+        - generic [ref=e922]:
+          - link "LinkedIn" [ref=e923] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e924]: ·
+          - link "GitHub" [ref=e925] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=e926]: ·
+          - link "Email" [ref=e927] [cursor=pointer]:
+            - /url: "#"
