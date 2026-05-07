@@ -284,12 +284,8 @@ const Flow = () => {
             <span className="rs-flow-link-label rs-flow-link-5">retorna</span>
           </div>
 
-          {/* Traveling pulse — driven exclusively by ScrollTrigger scrub */}
-          <span className="rs-flow-scrub-pulse" aria-hidden="true" />
-
-          {/* Mobile vertical line + pulse */}
+          {/* Mobile vertical line */}
           <div className="rs-flow-line-mobile" aria-hidden="true" />
-          <span className="rs-flow-scrub-pulse-mobile" aria-hidden="true" />
 
           {/* Data-handoff hops — short bursts node→node, like packets (desktop horizontal) */}
           <span className="rs-flow-hop rs-flow-hop--1" aria-hidden="true"><span className="rs-flow-hop-dot" /></span>

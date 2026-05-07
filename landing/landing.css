@@ -1028,7 +1028,7 @@
 .rs-flow-step:hover .rs-flow-node { transform: scale(1.06); box-shadow: inset 0 0 0 1px var(--rule-400), 0 0 32px currentColor; }
 .rs-flow-live { position: absolute; top: 6px; right: 6px; width: 5px; height: 5px; }
 .rs-flow-name { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: rgba(245,245,244,0.9); white-space: nowrap; }
-.rs-flow-sub { font-family: var(--font-mono); font-size: 10px; color: rgba(214,212,207,0.64); margin-top: 4px; line-height: 1.5; white-space: pre-line; }
+.rs-flow-sub { font-family: var(--font-mono); font-size: 12px; color: rgba(214,212,207,0.72); margin-top: 4px; line-height: 1.45; white-space: pre-line; }
 
 .rs-flow-io {
   margin-top: clamp(12px, 2vw, 20px);
@@ -1394,6 +1394,17 @@
   align-self: flex-start;
   margin-top: 14px;
 }
+
+/* Editorial mask reveal — same idiom as the hero title */
+.rs-tl-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em; /* descender room so g/ç/p don't get clipped */
+}
+.rs-tl-mask-inner {
+  display: inline-block;
+  will-change: transform;
+}
 .rs-tl-chapters {
   --tl-progress: 1;
   position: relative;
@@ -1422,6 +1433,52 @@
   transform: scaleY(var(--tl-progress));
   transform-origin: top center;
   transition: transform 120ms linear;
+}
+
+/* ---- Scroll-driven playhead — descends along the rail ---- */
+.rs-tl-playhead {
+  position: absolute;
+  left: 0;
+  top: calc(17px + var(--tl-progress, 0) * (100% - 45px));
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ember-500);
+  box-shadow:
+    0 0 0 2px rgba(8, 11, 20, 0.95),
+    0 0 14px rgba(149, 242, 15, 0.7),
+    0 0 28px rgba(149, 242, 15, 0.42);
+  pointer-events: none;
+  z-index: 2;
+  transition: top 140ms linear;
+  opacity: calc(var(--tl-progress, 0) * 6);
+}
+
+/* ---- Autonomous packets — small dots descending the rail forever ---- */
+.rs-tl-pkt {
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan-400);
+  box-shadow: 0 0 8px rgba(94, 200, 255, 0.6), 0 0 16px rgba(94, 200, 255, 0.3);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  animation: rs-tl-flow 7s linear infinite;
+  will-change: top, opacity;
+}
+.rs-tl-pkt--2 { animation-delay: -2.3s; }
+.rs-tl-pkt--3 { animation-delay: -4.6s; background: var(--ember-500); box-shadow: 0 0 8px rgba(149,242,15,0.6), 0 0 16px rgba(149,242,15,0.3); }
+@keyframes rs-tl-flow {
+  0%   { top: 17px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: calc(100% - 28px); opacity: 0; }
 }
 .rs-tl-step {
   position: relative;
@@ -1464,10 +1521,55 @@
   transition: color 320ms var(--ease-out-q), box-shadow 320ms var(--ease-out-q), background 320ms var(--ease-out-q), transform 320ms var(--ease-out-q);
 }
 .rs-tl-step.is-active .rs-tl-mark {
-  color: rgba(163,255,18,0.82);
+  color: rgba(163,255,18,0.92);
   background: var(--ink-050);
-  box-shadow: inset 0 0 0 1px rgba(149,242,15,0.32), 0 0 12px rgba(149,242,15,0.08);
-  transform: scale(1.03);
+  box-shadow: inset 0 0 0 1px rgba(149,242,15,0.5), 0 0 18px rgba(149,242,15,0.18);
+  transform: scale(1.08);
+}
+/* Pulse ring around active mark — radiates outward */
+.rs-tl-mark::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(149,242,15,0);
+  pointer-events: none;
+  transition: border-color 320ms var(--ease-out-q);
+}
+.rs-tl-step.is-active .rs-tl-mark::after {
+  border-color: rgba(149,242,15,0.45);
+  animation: rs-tl-mark-pulse 2.4s ease-in-out infinite;
+}
+@keyframes rs-tl-mark-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.6; }
+  50%      { transform: scale(1.25); opacity: 0;   }
+}
+
+/* "ATUAL" live chip on the last step kicker */
+.rs-tl-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: rgba(163,255,18,0.95);
+  background: rgba(149,242,15,0.06);
+  box-shadow: inset 0 0 0 1px rgba(149,242,15,0.32);
+}
+.rs-tl-now .tt-pulse-dot { width: 5px; height: 5px; }
+
+/* "Camada atual" mark — keeps the green ring even before activation */
+.rs-tl-step--current .rs-tl-mark {
+  color: rgba(163,255,18,0.78);
+  box-shadow: inset 0 0 0 1px rgba(149,242,15,0.28), 0 0 10px rgba(149,242,15,0.08);
+}
+.rs-tl-step--current .rs-tl-mark::after {
+  border-color: rgba(149,242,15,0.32);
+  animation: rs-tl-mark-pulse 3s ease-in-out infinite;
 }
 .rs-tl-card {
   grid-column: 2;
@@ -2127,6 +2229,8 @@
   .rs-flow-particle,
   .rs-flow-hop-dot,
   .rs-flow-vhop-dot,
+  .rs-tl-pkt,
+  .rs-tl-mark::after,
   .rs-service-card::before,
   .rs-proj-card::before,
   .rs-stack-group::after,

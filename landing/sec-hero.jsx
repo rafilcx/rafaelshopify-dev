@@ -5,23 +5,6 @@
 const Hero = () => {
   const sectionRef = React.useRef(null);
   const visualRef = React.useRef(null);
-  const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
-
-  // Mouse parallax on the OS visual
-  React.useEffect(() => {
-    const onMove = (e) => {
-      const r = visualRef.current?.getBoundingClientRect();
-      if (!r) return;
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      setTilt({
-        x: (e.clientX - cx) / r.width,
-        y: (e.clientY - cy) / r.height,
-      });
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
 
   // Hero entrance timeline — orchestrated with GSAP.
   // Falls back gracefully when GSAP is missing or reduced-motion is set:
@@ -176,17 +159,15 @@ const Hero = () => {
         </div>
 
         {/* RIGHT */}
-        <div ref={visualRef} className="rs-hero-visual reveal" data-reveal style={{
-          transform: `perspective(1200px) rotateX(${tilt.y * -3}deg) rotateY(${tilt.x * 4}deg)`,
-        }}>
-          <HeroOS tilt={tilt} />
+        <div ref={visualRef} className="rs-hero-visual reveal" data-reveal>
+          <HeroOS />
         </div>
       </div>
     </section>
   );
 };
 
-const HeroOS = ({ tilt }) => {
+const HeroOS = () => {
   const W = 720, H = 640;
   const cx = W / 2, cy = H / 2;
   // Hub box is 168x168 px in the original 720x640 canvas → half-size in viewBox units

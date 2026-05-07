@@ -478,12 +478,12 @@ const Projects = () => {
       accent: "cyan",
     },
     {
-      n: "04", title: "AI System / Obsidian",
-      status: "AI · KNOWLEDGE",
-      problem: "Conhecimento operacional espalhado em documentos, conversas e memória da equipe.",
-      system: "Base em Obsidian para organizar clientes, produtos, prompts, playbooks, decisões e aprendizados.",
-      value: "Operação que aprende com a própria história e reaproveita conhecimento em vez de começar do zero.",
-      tags: ["Obsidian", "Prompts", "Playbooks", "Knowledge"],
+      n: "04", title: "Shopify Ops Automation",
+      status: "OPS · AUTOMATION",
+      problem: "Processos manuais, briefings soltos e informações importantes espalhadas entre loja, campanha e operação.",
+      system: "Fluxos para organizar demandas, handoffs, documentação, produto, campanhas e decisões com mais contexto.",
+      value: "Menos retrabalho, mais velocidade operacional e uma rotina mais clara para marketing, design e e-commerce.",
+      tags: ["Automation", "Workflows", "Handoffs", "Ops"],
       accent: "cyan",
     },
   ];
@@ -561,7 +561,7 @@ const Projects = () => {
         <SectionHeader
           n="05"
           eyebrow="EXPERIÊNCIA REAL"
-          title={<>Projetos aplicados<br/>em <span className="rs-italic rs-ember">operações reais</span> de e-commerce.</>}
+          title={<>Projetos aplicados<br/>em <span className="rs-italic rs-ember">operações reais</span><br/>de e-commerce.</>}
           kicker="Desenvolvimento Shopify e páginas comerciais como núcleo do trabalho — com dados, IA e sistemas apoiando operação, performance e decisão."
         />
 
@@ -655,6 +655,23 @@ const Timeline = () => {
         onLeave: showAll,
         onLeaveBack: () => setProgress(0),
       });
+
+      // Editorial mask reveal on the left story block — same idiom as the hero
+      const story = el.querySelector(".rs-tl-story");
+      if (story) {
+        const gsap = window.gsap;
+        const inners = Array.from(story.querySelectorAll(".rs-tl-mask-inner"));
+        const cta = story.querySelector(".rs-tl-story-cta");
+        if (inners.length || cta) {
+          if (inners.length) gsap.set(inners, { yPercent: 110 });
+          if (cta) gsap.set(cta, { opacity: 0, y: 14 });
+          gsap.timeline({
+            scrollTrigger: { trigger: story, start: "top 82%", once: true },
+          })
+            .to(inners, { yPercent: 0, duration: 1.05, ease: "expo.out", stagger: 0.12 })
+            .to(cta, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, "-=0.45");
+        }
+      }
     }, el);
 
     return () => ctx.revert();
@@ -672,12 +689,14 @@ const Timeline = () => {
 
         <div className="rs-timeline-editorial">
           <div className="rs-tl-story">
-            <span className="rs-tl-story-kicker">POR QUE ESSA COMBINAÇÃO EXISTE</span>
+            <span className="rs-tl-story-kicker">
+              <span className="rs-tl-mask"><span className="rs-tl-mask-inner">POR QUE ESSA COMBINAÇÃO EXISTE</span></span>
+            </span>
             <p>
-              A base visual virou vantagem técnica.
+              <span className="rs-tl-mask"><span className="rs-tl-mask-inner">A base visual virou vantagem técnica.</span></span>
             </p>
             <p>
-              Design deu a base. Shopify virou o centro. Dados, IA e automação ampliaram a forma de construir.
+              <span className="rs-tl-mask"><span className="rs-tl-mask-inner">Design deu a base. Shopify virou o centro. Dados, IA e automação ampliaram a forma de construir.</span></span>
             </p>
             <a
               className="rs-btn rs-btn-primary rs-tl-story-cta"
@@ -690,18 +709,30 @@ const Timeline = () => {
           </div>
 
           <div className="rs-tl-chapters" aria-label="Capítulos da trajetória profissional">
-          {steps.map((s, i) => (
-            <article key={s.t} className={`rs-tl-step rs-tl-${s.accent}`}>
-              <div className="rs-tl-mark">
-                <span>{String(i + 1).padStart(2, "0")}</span>
-              </div>
-              <div className="rs-tl-card">
-                <div className="rs-tl-kicker">{s.k}</div>
-                <div className="rs-tl-title">{s.t}</div>
-                <div className="rs-tl-desc">{s.d}</div>
-              </div>
-            </article>
-          ))}
+            {/* Scroll-driven playhead — descends the rail with --tl-progress */}
+            <span className="rs-tl-playhead" aria-hidden="true" />
+            {/* Autonomous packets — keep the rail "alive" while at rest */}
+            <span className="rs-tl-pkt rs-tl-pkt--1" aria-hidden="true" />
+            <span className="rs-tl-pkt rs-tl-pkt--2" aria-hidden="true" />
+            <span className="rs-tl-pkt rs-tl-pkt--3" aria-hidden="true" />
+            {steps.map((s, i) => {
+              const isLast = i === steps.length - 1;
+              return (
+                <article key={s.t} className={`rs-tl-step rs-tl-${s.accent}${isLast ? " rs-tl-step--current" : ""}`}>
+                  <div className="rs-tl-mark">
+                    <span>{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div className="rs-tl-card">
+                    <div className="rs-tl-kicker">
+                      {s.k}
+                      {isLast && <span className="rs-tl-now"><span className="tt-pulse-dot" />ATUAL</span>}
+                    </div>
+                    <div className="rs-tl-title">{s.t}</div>
+                    <div className="rs-tl-desc">{s.d}</div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>
