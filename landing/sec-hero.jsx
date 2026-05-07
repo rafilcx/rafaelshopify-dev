@@ -6,19 +6,9 @@ const Hero = () => {
   const sectionRef = React.useRef(null);
   const visualRef = React.useRef(null);
   const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
-  const [isMobile, setIsMobile] = React.useState(
-    typeof window !== "undefined" && window.innerWidth <= 767
-  );
-
-  React.useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth <= 767);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
 
   // Mouse parallax on the OS visual
   React.useEffect(() => {
-    if (isMobile) return;
     const onMove = (e) => {
       const r = visualRef.current?.getBoundingClientRect();
       if (!r) return;
@@ -31,7 +21,7 @@ const Hero = () => {
     };
     window.addEventListener("mousemove", onMove);
     return () => window.removeEventListener("mousemove", onMove);
-  }, [isMobile]);
+  }, []);
 
   // Hero entrance timeline — orchestrated with GSAP.
   // Falls back gracefully when GSAP is missing or reduced-motion is set:
@@ -135,9 +125,9 @@ const Hero = () => {
         {/* LEFT */}
         <div className="rs-hero-copy reveal" data-reveal>
           <div className="rs-hero-eyebrow">
-            <span style={{ color: "var(--ember-500)", whiteSpace: "nowrap" }}>[01]</span>
-            <span style={{ flex: 1, height: 1, background: "var(--rule-200)", minWidth: 24 }} />
-            <span style={{ whiteSpace: "nowrap" }}>SHOPIFY DEVELOPER · E-COMMERCE SYSTEMS · SP · BR</span>
+            <span style={{ color: "var(--ember-500)" }}>[01]</span>
+            <span className="rs-hero-eyebrow-line" />
+            <span className="rs-hero-eyebrow-text">SHOPIFY DEVELOPER · E-COMMERCE SYSTEMS</span>
           </div>
 
           <h1 className="rs-hero-title">
@@ -186,26 +176,10 @@ const Hero = () => {
         </div>
 
         {/* RIGHT */}
-        <div ref={visualRef} className="rs-hero-visual reveal" data-reveal style={isMobile ? undefined : {
+        <div ref={visualRef} className="rs-hero-visual reveal" data-reveal style={{
           transform: `perspective(1200px) rotateX(${tilt.y * -3}deg) rotateY(${tilt.x * 4}deg)`,
         }}>
           <HeroOS tilt={tilt} />
-        </div>
-
-        {/* MOBILE-ONLY simplified OS map (shown via CSS at <=767px) */}
-        <div className="rs-hero-os-mobile" aria-hidden="true">
-          <div className="rs-hero-os-mobile-hub">
-            <CornerTicks color="rgba(149,242,15,0.58)" />
-            <img className="rs-hero-os-mobile-logo" src="uploads/shopify.png" alt="" aria-hidden="true" />
-            <div className="rs-hero-os-mobile-os">SHOPIFY</div>
-            <div className="rs-hero-os-mobile-sub">COMMERCE OS</div>
-          </div>
-          <div className="rs-hero-os-mobile-chips">
-            <span className="rs-hero-os-mobile-chip rs-hero-os-mobile-chip--cyan"><span className="rs-chip-dot" /> Dados</span>
-            <span className="rs-hero-os-mobile-chip rs-hero-os-mobile-chip--cyan"><span className="rs-chip-dot" /> IA</span>
-            <span className="rs-hero-os-mobile-chip rs-hero-os-mobile-chip--cyan"><span className="rs-chip-dot" /> Dashboards</span>
-            <span className="rs-hero-os-mobile-chip rs-hero-os-mobile-chip--ember"><span className="rs-chip-dot" /> Automação</span>
-          </div>
         </div>
       </div>
     </section>
@@ -215,6 +189,23 @@ const Hero = () => {
 const HeroOS = ({ tilt }) => {
   const W = 720, H = 640;
   const cx = W / 2, cy = H / 2;
+  // Hub box is 168x168 px in the original 720x640 canvas → half-size in viewBox units
+  const HUB_HW = 84, HUB_HH = 84;
+  // Where a line from (n.x,n.y) toward (cx,cy) first touches the hub box outline
+  const hubEdge = (n) => {
+    const dx = cx - n.x, dy = cy - n.y;
+    let t = -Infinity;
+    if (dx !== 0) {
+      const sideX = dx > 0 ? cx - HUB_HW : cx + HUB_HW;
+      t = Math.max(t, (sideX - n.x) / dx);
+    }
+    if (dy !== 0) {
+      const sideY = dy > 0 ? cy - HUB_HH : cy + HUB_HH;
+      t = Math.max(t, (sideY - n.y) / dy);
+    }
+    if (!isFinite(t)) t = 1;
+    return { x: n.x + t * dx, y: n.y + t * dy };
+  };
   const nodes = [
     { id: "shop",  x: 100, y: 110, label: "SHOPIFY",     sub: "ECOSSISTEMA",  icon: "shopify", accent: "shopify" },
     { id: "ai",    x: 90,  y: 320, label: "IA APLICADA", sub: "INTELIGÊNCIA", icon: "ai",      accent: "cyan", live: true },
@@ -243,10 +234,11 @@ const HeroOS = ({ tilt }) => {
             : n.accent === "ember"
               ? "rgba(149,242,15,0.55)"
               : "rgba(94,200,255,0.55)";
+          const e = hubEdge(n);
           return (
             <g key={n.id}>
-              <line x1={n.x} y1={n.y} x2={cx} y2={cy} stroke={stroke} strokeWidth="1" />
-              <line x1={n.x} y1={n.y} x2={cx} y2={cy}
+              <line x1={n.x} y1={n.y} x2={e.x} y2={e.y} stroke={stroke} strokeWidth="1" />
+              <line x1={n.x} y1={n.y} x2={e.x} y2={e.y}
                     stroke={stroke} strokeWidth="1.5"
                     strokeDasharray="3 8"
                     style={{ animation: `tt-flow ${2.4 + i * 0.3}s linear infinite` }} />
@@ -272,11 +264,12 @@ const HeroOS = ({ tilt }) => {
               : "rgba(94,200,255,0.95)";
           const dur = 3.4 + i * 0.35;
           const begin = `${(i * 0.55).toFixed(2)}s`;
+          const e = hubEdge(n);
           return (
             <circle key={`pulse-${n.id}`} r="2.6" fill={color} className="rs-os-pulse"
                     style={{ color }}>
-              <animate attributeName="cx" from={n.x} to={cx} dur={`${dur}s`} begin={begin} repeatCount="indefinite" />
-              <animate attributeName="cy" from={n.y} to={cy} dur={`${dur}s`} begin={begin} repeatCount="indefinite" />
+              <animate attributeName="cx" from={n.x} to={e.x} dur={`${dur}s`} begin={begin} repeatCount="indefinite" />
+              <animate attributeName="cy" from={n.y} to={e.y} dur={`${dur}s`} begin={begin} repeatCount="indefinite" />
               <animate attributeName="opacity"
                        values="0;1;1;0"
                        keyTimes="0;0.1;0.85;1"
@@ -307,7 +300,7 @@ const HeroOS = ({ tilt }) => {
       {/* HUB */}
       <div className="rs-hub" style={{ left: "50%", top: "50%" }}>
         <CornerTicks color="rgba(149,242,15,0.58)" />
-        <img className="rs-hub-logo" src="uploads/shopify.png" alt="" aria-hidden="true" />
+        <img className="rs-hub-logo" src="assets/shopify.png" alt="" aria-hidden="true" />
         <div className="rs-hub-os">SHOPIFY</div>
         <div className="rs-hub-sub">COMMERCE OS</div>
         <span className="tt-pulse-dot rs-hub-live" />

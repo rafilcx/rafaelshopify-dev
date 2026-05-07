@@ -1,0 +1,34 @@
+# Dev/scratch artifacts não usados pelo index.html
+Tittanium Design System.html
+Rafael Silva.html
+design-canvas.jsx
+components.jsx
+hero-section.jsx
+foundation-cards.jsx
+case-study-section.jsx
+systems-map-section.jsx
+
+# Pasta antiga de uploads (asset migrado para /assets)
+uploads/
+
+# Estado local / scratch
+.design-canvas.state.json
+.playwright-cli/
+.claude/
+AGENTS.md
+
+# Documentação interna
+README.md
+
+# Backups e temporários
+*.backup
+*.old
+*.tmp
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (futuro)
+node_modules/

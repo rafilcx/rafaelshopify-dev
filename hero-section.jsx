@@ -56,9 +56,6 @@ const HeroSection = () => {
               [01] · OPERATOR
             </span>
             <span style={{ flex: 1, height: 1, background: "var(--rule-200)" }} />
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-400)", letterSpacing: "0.14em" }}>
-              SÃO PAULO · BR
-            </span>
           </div>
 
           <h1 style={{

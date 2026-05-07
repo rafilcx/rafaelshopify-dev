@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rafael Silva">
+  <rect width="64" height="64" rx="14" fill="#05070d"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="rgba(149,242,15,0.35)" stroke-width="1"/>
+  <path d="M20 16h15.5c5.8 0 10 3.9 10 9.4 0 4.4-2.7 7.8-6.8 9l8.2 13.6h-7.6l-7.4-12.6H26V48h-6V16zm6 14.2h9.1c2.7 0 4.6-1.8 4.6-4.6 0-2.7-1.9-4.4-4.6-4.4H26v9z" fill="#95F20F"/>
+</svg>

@@ -86,6 +86,7 @@ const Background = () => {
 
 const Nav = () => {
   const [scrolled, setScrolled] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
   const navRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -93,6 +94,19 @@ const Nav = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  React.useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = menuOpen ? "hidden" : prev;
+    return () => { document.body.style.overflow = prev; };
+  }, [menuOpen]);
+
+  React.useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => { if (e.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   // Soft entrance — slide down + fade
   React.useLayoutEffect(() => {
@@ -107,23 +121,61 @@ const Nav = () => {
     return () => ctx.revert();
   }, []);
 
+  const navLinks = [
+    { href: "#sistemas",  label: "Shopify"    },
+    { href: "#flow",      label: "Operação"   },
+    { href: "#dashboard", label: "Dados"      },
+    { href: "#projetos",  label: "Projetos"   },
+    { href: "#evolucao",  label: "Trajetória" },
+    { href: "#stack",     label: "Stack"      },
+  ];
+
   return (
-    <nav ref={navRef} className="rs-nav" style={{ opacity: scrolled ? 1 : 0.95 }}>
-      <div className="rs-nav-brand">
-        <div className="rs-nav-logo">R</div>
-        <span className="rs-nav-name">RAFAEL SILVA</span>
+    <React.Fragment>
+      <nav ref={navRef} className="rs-nav" style={{ opacity: scrolled ? 1 : 0.95 }}>
+        <div className="rs-nav-brand">
+          <div className="rs-nav-logo">R</div>
+          <span className="rs-nav-name">RAFAEL SILVA</span>
+        </div>
+        <div className="rs-nav-links">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href}>{l.label}</a>
+          ))}
+        </div>
+        <span className="rs-nav-status"><span className="rs-status-dot" />Aberto a projetos</span>
+        <button
+          type="button"
+          className={`rs-nav-burger${menuOpen ? " is-open" : ""}`}
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuOpen}
+          aria-controls="rs-nav-drawer"
+        >
+          <span /><span /><span />
+        </button>
+        <a href="https://wa.me/5548999255795?text=Ol%C3%A1%20Rafael!%20Vim%20pelo%20seu%20site%20e%20queria%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" className="rs-nav-cta">Conversar</a>
+      </nav>
+
+      <div
+        id="rs-nav-drawer"
+        className={`rs-nav-drawer${menuOpen ? " is-open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!menuOpen}
+      >
+        <div className="rs-nav-drawer-backdrop" onClick={() => setMenuOpen(false)} />
+        <div className="rs-nav-drawer-panel">
+          <div className="rs-nav-drawer-links">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
+            ))}
+          </div>
+          <div className="rs-nav-drawer-status">
+            <span className="rs-status-dot" /> Aberto a projetos
+          </div>
+        </div>
       </div>
-      <div className="rs-nav-links">
-        <a href="#sistemas">Shopify</a>
-        <a href="#flow">Operação</a>
-        <a href="#dashboard">Dados</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#evolucao">Trajetória</a>
-        <a href="#stack">Stack</a>
-      </div>
-      <span className="rs-nav-status"><span className="rs-status-dot" />Aberto a projetos</span>
-      <a href="https://wa.me/5548999255795?text=Ol%C3%A1%20Rafael!%20Vim%20pelo%20seu%20site%20e%20queria%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" className="rs-nav-cta">Conversar</a>
-    </nav>
+    </React.Fragment>
   );
 };
 

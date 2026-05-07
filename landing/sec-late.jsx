@@ -392,6 +392,52 @@ const MiniDonut = () => {
 // ---------- PROJECTS ----------
 const Projects = () => {
   const sectionRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const row = sectionRef.current?.querySelector(".rs-clients-row");
+    if (!row) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const onDown = (e) => {
+      isDown = true;
+      row.classList.add("is-dragging");
+      startX = (e.pageX || e.touches[0].pageX) - row.offsetLeft;
+      scrollLeft = row.scrollLeft;
+    };
+    const onUp = () => {
+      isDown = false;
+      row.classList.remove("is-dragging");
+    };
+    const onMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = (e.pageX || e.touches[0].pageX) - row.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      row.scrollLeft = scrollLeft - walk;
+    };
+
+    row.addEventListener("mousedown", onDown);
+    row.addEventListener("mouseleave", onUp);
+    row.addEventListener("mouseup", onUp);
+    row.addEventListener("mousemove", onMove);
+    row.addEventListener("touchstart", onDown, { passive: false });
+    row.addEventListener("touchend", onUp);
+    row.addEventListener("touchmove", onMove, { passive: false });
+
+    return () => {
+      row.removeEventListener("mousedown", onDown);
+      row.removeEventListener("mouseleave", onUp);
+      row.removeEventListener("mouseup", onUp);
+      row.removeEventListener("mousemove", onMove);
+      row.removeEventListener("touchstart", onDown);
+      row.removeEventListener("touchend", onUp);
+      row.removeEventListener("touchmove", onMove);
+    };
+  }, []);
+
   const clients = [
     { n: "Kabak",         url: "https://www.kabak.com.br" },
     { n: "Just Beauty",   url: "https://www.justbeauty.com.br" },
@@ -864,7 +910,7 @@ const FinalCTA = () => (
       <div className="rs-cta-meta">
         <span><span className="tt-pulse-dot" />ABERTO A NOVOS PROJETOS</span>
         <span>·</span>
-        <span>REMOTO · SÃO PAULO/SP</span>
+        <span>REMOTO</span>
         <span>·</span>
         <span>RETORNO EM ATÉ 48H</span>
       </div>
@@ -882,11 +928,7 @@ const FinalCTA = () => (
           </div>
         </div>
         <div className="rs-footer-mid">© 2026 · Lojas Shopify com design, dados e operação conectados.</div>
-        <div className="rs-footer-right">
-          <a href="https://www.linkedin.com/in/rafaelsilva90/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span>·</span>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a><span>·</span>
-          <a href="mailto:rafael@tittanium.com">Email</a>
-        </div>
+        <div className="rs-footer-right" aria-hidden="true"></div>
       </div>
     </footer>
   </section>

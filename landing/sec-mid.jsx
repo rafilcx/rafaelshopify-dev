@@ -162,6 +162,7 @@ const Flow = () => {
     if (!root) return;
 
     const pulse    = root.querySelector(".rs-flow-scrub-pulse");
+    const pulseMobile = root.querySelector(".rs-flow-scrub-pulse-mobile");
     const steps    = Array.from(root.querySelectorAll(".rs-flow-step"));
     const labels   = Array.from(root.querySelectorAll(".rs-flow-link-label"));
     const feedback = root.querySelector(".rs-flow-feedback");
@@ -174,14 +175,14 @@ const Flow = () => {
       feedback?.classList.add("is-visible");
       io?.classList.add("is-visible");
       pulse?.classList.remove("is-traveling");
+      pulseMobile?.classList.remove("is-traveling");
     };
 
     const M = window.RSMotion;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isNarrow = window.innerWidth < 1000;
 
-    // Mobile / reduced-motion / no-GSAP → reveal everything immediately
-    if (!M || !M.ready || reduced || isNarrow) { showAll(); return; }
+    // Reduced-motion / no-GSAP → reveal everything immediately
+    if (!M || !M.ready || reduced) { showAll(); return; }
 
     const ctx = M.context(() => {
       const ScrollTrigger = window.ScrollTrigger;
@@ -193,6 +194,7 @@ const Flow = () => {
       feedback?.classList.remove("is-visible");
       io?.classList.remove("is-visible");
       if (pulse) { pulse.style.left = "8.333%"; pulse.classList.remove("is-traveling"); }
+      if (pulseMobile) { pulseMobile.style.top = "4%"; pulseMobile.classList.remove("is-traveling"); }
 
       ScrollTrigger.create({
         trigger: root,
@@ -206,6 +208,10 @@ const Flow = () => {
           if (pulse) {
             pulse.classList.toggle("is-traveling", traveling);
             if (traveling) pulse.style.left = `${8.333 + 83.334 * p}%`;
+          }
+          if (pulseMobile) {
+            pulseMobile.classList.toggle("is-traveling", traveling);
+            if (traveling) pulseMobile.style.top = `${4 + 92 * p}%`;
           }
 
           steps.forEach((step, i) => {
@@ -281,12 +287,25 @@ const Flow = () => {
           {/* Traveling pulse — driven exclusively by ScrollTrigger scrub */}
           <span className="rs-flow-scrub-pulse" aria-hidden="true" />
 
-          {/* Data-handoff hops — short bursts node→node, like packets */}
+          {/* Mobile vertical line + pulse */}
+          <div className="rs-flow-line-mobile" aria-hidden="true" />
+          <span className="rs-flow-scrub-pulse-mobile" aria-hidden="true" />
+
+          {/* Data-handoff hops — short bursts node→node, like packets (desktop horizontal) */}
           <span className="rs-flow-hop rs-flow-hop--1" aria-hidden="true"><span className="rs-flow-hop-dot" /></span>
           <span className="rs-flow-hop rs-flow-hop--2" aria-hidden="true"><span className="rs-flow-hop-dot" /></span>
           <span className="rs-flow-hop rs-flow-hop--3" aria-hidden="true"><span className="rs-flow-hop-dot" /></span>
           <span className="rs-flow-hop rs-flow-hop--4" aria-hidden="true"><span className="rs-flow-hop-dot" /></span>
           <span className="rs-flow-hop rs-flow-hop--5" aria-hidden="true"><span className="rs-flow-hop-dot rs-flow-hop-dot--ember" /></span>
+
+          {/* Mobile vertical data-handoff stream — staggered packets falling down the rail */}
+          <span className="rs-flow-vhops" aria-hidden="true">
+            <span className="rs-flow-vhop-dot" />
+            <span className="rs-flow-vhop-dot" />
+            <span className="rs-flow-vhop-dot" />
+            <span className="rs-flow-vhop-dot" />
+            <span className="rs-flow-vhop-dot rs-flow-vhop-dot--ember" />
+          </span>
 
           <div className="rs-flow-grid">
             {flow.map((n, i) => (

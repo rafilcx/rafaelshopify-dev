@@ -19,7 +19,7 @@ const FoundationCover = () => (
             TITTANIUM · DESIGN SYSTEM
           </div>
           <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", color: "var(--fg-500)" }}>
-            v1.0 · BRAZIL · 2026
+            v1.0 · 2026
           </div>
         </div>
       </div>
