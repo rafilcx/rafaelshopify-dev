@@ -711,28 +711,18 @@ const Timeline = () => {
           <div className="rs-tl-chapters" aria-label="Capítulos da trajetória profissional">
             {/* Scroll-driven playhead — descends the rail with --tl-progress */}
             <span className="rs-tl-playhead" aria-hidden="true" />
-            {/* Autonomous packets — keep the rail "alive" while at rest */}
-            <span className="rs-tl-pkt rs-tl-pkt--1" aria-hidden="true" />
-            <span className="rs-tl-pkt rs-tl-pkt--2" aria-hidden="true" />
-            <span className="rs-tl-pkt rs-tl-pkt--3" aria-hidden="true" />
-            {steps.map((s, i) => {
-              const isLast = i === steps.length - 1;
-              return (
-                <article key={s.t} className={`rs-tl-step rs-tl-${s.accent}${isLast ? " rs-tl-step--current" : ""}`}>
-                  <div className="rs-tl-mark">
-                    <span>{String(i + 1).padStart(2, "0")}</span>
-                  </div>
-                  <div className="rs-tl-card">
-                    <div className="rs-tl-kicker">
-                      {s.k}
-                      {isLast && <span className="rs-tl-now"><span className="tt-pulse-dot" />ATUAL</span>}
-                    </div>
-                    <div className="rs-tl-title">{s.t}</div>
-                    <div className="rs-tl-desc">{s.d}</div>
-                  </div>
-                </article>
-              );
-            })}
+            {steps.map((s, i) => (
+              <article key={s.t} className={`rs-tl-step rs-tl-${s.accent}`}>
+                <div className="rs-tl-mark">
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <div className="rs-tl-card">
+                  <div className="rs-tl-kicker">{s.k}</div>
+                  <div className="rs-tl-title">{s.t}</div>
+                  <div className="rs-tl-desc">{s.d}</div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

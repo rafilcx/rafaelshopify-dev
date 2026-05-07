@@ -72,22 +72,6 @@ const Hero = () => {
         .from(".rs-os-status", { opacity: 0, y: 8, duration: 0.5 }, 1.05)
         .from(".rs-portrait",  { opacity: 0, y: 12, duration: 0.55 }, 1.1);
 
-      // ScrollTrigger re-flash — when user scrolls back up to the hero,
-      // replay a quick wave across chips to telegraph the system is alive.
-      if (ScrollTrigger) {
-        ScrollTrigger.create({
-          trigger: root,
-          start: "top 30%",
-          onEnterBack: () => {
-            chips.forEach((c, idx) => {
-              setTimeout(() => {
-                c.classList.add("is-flash");
-                setTimeout(() => c.classList.remove("is-flash"), 360);
-              }, idx * 70);
-            });
-          },
-        });
-      }
     }, root);
 
     return () => {

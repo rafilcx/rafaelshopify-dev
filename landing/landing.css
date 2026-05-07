@@ -1414,6 +1414,7 @@
   width: 100%;
   max-width: 690px;
   justify-self: end;
+  padding-left: 32px; /* breathing room between rail line and 01-04 marks */
 }
 .rs-tl-chapters::before,
 .rs-tl-chapters::after {
