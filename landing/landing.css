@@ -1409,6 +1409,9 @@
 }
 .rs-tl-chapters {
   --tl-progress: 1;
+  --tl-rail-x: 2px;
+  --tl-mark-col: 70px;
+  --tl-step-gap: clamp(30px, 3.3vw, 50px);
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
@@ -1416,23 +1419,24 @@
   width: 100%;
   max-width: 690px;
   justify-self: end;
-  padding-left: 32px; /* breathing room between rail line and 01-04 marks */
+  padding-left: 0;
 }
 .rs-tl-chapters::before,
 .rs-tl-chapters::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: var(--tl-rail-x);
   top: 17px;
   bottom: 28px;
   width: 1px;
   pointer-events: none;
+  z-index: 0;
 }
 .rs-tl-chapters::before {
   background: rgba(255,255,255,0.08);
 }
 .rs-tl-chapters::after {
-  background: linear-gradient(180deg, rgba(149,242,15,0.08), rgba(149,242,15,0.42), rgba(94,200,255,0.24));
+  background: linear-gradient(180deg, rgba(149,242,15,0.18), rgba(149,242,15,0.55), rgba(149,242,15,0.30));
   transform: scaleY(var(--tl-progress));
   transform-origin: top center;
   transition: transform 120ms linear;
@@ -1441,7 +1445,7 @@
 /* ---- Scroll-driven playhead — descends along the rail ---- */
 .rs-tl-playhead {
   position: absolute;
-  left: 0;
+  left: var(--tl-rail-x);
   top: calc(17px + var(--tl-progress, 0) * (100% - 45px));
   transform: translate(-50%, -50%);
   width: 12px;
@@ -1453,7 +1457,7 @@
     0 0 14px rgba(149, 242, 15, 0.7),
     0 0 28px rgba(149, 242, 15, 0.42);
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
   transition: top 140ms linear;
   opacity: calc(var(--tl-progress, 0) * 6);
 }
@@ -1461,13 +1465,13 @@
 /* ---- Autonomous packets — small dots descending the rail forever ---- */
 .rs-tl-pkt {
   position: absolute;
-  left: 0;
+  left: var(--tl-rail-x);
   top: 17px;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--cyan-400);
-  box-shadow: 0 0 8px rgba(94, 200, 255, 0.6), 0 0 16px rgba(94, 200, 255, 0.3);
+  background: var(--ember-500);
+  box-shadow: 0 0 8px rgba(149,242,15,0.6), 0 0 16px rgba(149,242,15,0.3);
   transform: translate(-50%, -50%);
   opacity: 0;
   pointer-events: none;
@@ -1476,37 +1480,46 @@
   will-change: top, opacity;
 }
 .rs-tl-pkt--2 { animation-delay: -2.3s; }
-.rs-tl-pkt--3 { animation-delay: -4.6s; background: var(--ember-500); box-shadow: 0 0 8px rgba(149,242,15,0.6), 0 0 16px rgba(149,242,15,0.3); }
+.rs-tl-pkt--3 { animation-delay: -4.6s; }
 @keyframes rs-tl-flow {
   0%   { top: 17px; opacity: 0; }
   10%  { opacity: 1; }
   90%  { opacity: 1; }
   100% { top: calc(100% - 28px); opacity: 0; }
 }
+
 .rs-tl-step {
   position: relative;
   display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: clamp(20px, 2.6vw, 36px);
+  grid-template-columns: var(--tl-mark-col) minmax(0, 1fr);
+  gap: var(--tl-step-gap);
   padding: 28px 0;
-  border-top: 1px solid var(--rule-100);
+  border-top: 0;
   opacity: 0.78;
   transform: translateY(8px);
   transition: opacity 360ms var(--ease-out-q), transform 360ms var(--ease-out-q);
+}
+.rs-tl-step::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--tl-mark-col) + var(--tl-step-gap));
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--rule-100);
+  pointer-events: none;
 }
 .rs-tl-step.is-active {
   opacity: 1;
   transform: translateY(0);
 }
-.rs-tl-step:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
+.rs-tl-step:first-child { padding-top: 0; }
+.rs-tl-step:first-child::before { display: none; }
 .rs-tl-mark {
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
-  margin-left: 8px;
+  margin-left: 24px;
   width: 34px;
   height: 34px;
   display: flex;
@@ -1514,19 +1527,22 @@
   justify-content: center;
   border-radius: 50%;
   background: var(--ink-050);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.12);
   color: var(--fg-500);
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.12em;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   transition: color 320ms var(--ease-out-q), box-shadow 320ms var(--ease-out-q), background 320ms var(--ease-out-q), transform 320ms var(--ease-out-q);
 }
 .rs-tl-step.is-active .rs-tl-mark {
   color: rgba(163,255,18,0.92);
   background: var(--ink-050);
-  box-shadow: inset 0 0 0 1px rgba(149,242,15,0.5), 0 0 18px rgba(149,242,15,0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(149,242,15,0.5),
+    0 0 18px rgba(149,242,15,0.18);
   transform: scale(1.08);
 }
 /* Pulse ring around active mark — radiates outward */
@@ -1626,41 +1642,54 @@
     padding-right: 0;
   }
   .rs-tl-chapters {
+    --tl-mark-col: 54px;
+    --tl-step-gap: 22px;
     max-width: none;
     justify-self: stretch;
   }
   .rs-tl-step {
-    grid-template-columns: 54px minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: var(--tl-mark-col) minmax(0, 1fr);
+    gap: var(--tl-step-gap);
   }
 }
 @media (max-width: 560px) {
+  .rs-tl-chapters {
+    --tl-rail-x: 16px;
+    --tl-mark-col: 44px;
+    --tl-step-gap: 18px;
+  }
   .rs-tl-step {
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 14px;
+    grid-template-columns: var(--tl-mark-col) minmax(0, 1fr);
+    gap: var(--tl-step-gap);
   }
   .rs-tl-mark {
     width: 32px;
     height: 32px;
-  }
-  .rs-tl-chapters::before,
-  .rs-tl-chapters::after {
-    left: 0;
   }
 }
 
 /* ============================================================
    STACK
    ============================================================ */
-.rs-stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.rs-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  position: relative;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
 @media (max-width: 800px) { .rs-stack-grid { grid-template-columns: 1fr; } }
+
 .rs-stack-group {
   position: relative;
   padding: 28px;
   background: rgba(255,255,255,0.02);
   box-shadow: inset 0 0 0 1px var(--rule-300);
   border-radius: 4px;
-  transition: all var(--dur-base) var(--ease-out);
+  transform-style: preserve-3d;
+  transition: box-shadow var(--dur-base) var(--ease-out);
+  will-change: transform;
 }
 .rs-stack-group:hover { box-shadow: inset 0 0 0 1px var(--rule-400); }
 .rs-stack-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--rule-200); margin-bottom: 16px; }
@@ -1699,8 +1728,9 @@
 @media (prefers-reduced-motion: reduce) {
   .rs-stack-status-dot { animation: none; }
 }
-.rs-stack-items { display: flex; flex-wrap: wrap; column-gap: 6px; row-gap: 10px; }
+.rs-stack-items { display: flex; flex-wrap: wrap; column-gap: 6px; row-gap: 10px; transform-style: preserve-3d; }
 .rs-stack-chip {
+  position: relative;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.06em;
@@ -1710,12 +1740,43 @@
   box-shadow: inset 0 0 0 1px var(--rule-200);
   border-radius: 2px;
   white-space: nowrap;
+  transform-style: preserve-3d;
   transition: background var(--dur-base) var(--ease-out),
               color var(--dur-base) var(--ease-out),
               box-shadow var(--dur-base) var(--ease-out);
 }
 .rs-chip { white-space: nowrap; }
-.rs-stack-chip:hover { color: var(--fg-100); background: rgba(255,255,255,0.05); box-shadow: inset 0 0 0 1px var(--rule-300); }
+.rs-stack-chip:hover,
+.rs-stack-chip.is-lifted {
+  color: var(--fg-100);
+  background: rgba(255,255,255,0.06);
+  box-shadow:
+    inset 0 0 0 1px var(--rule-400),
+    0 14px 28px -10px rgba(0,0,0,0.55),
+    0 6px 12px -6px rgba(0,0,0,0.45);
+  z-index: 5;
+}
+.rs-stack-group.rs-ember .rs-stack-chip:hover,
+.rs-stack-group.rs-ember .rs-stack-chip.is-lifted {
+  color: #d6ff8a;
+  box-shadow:
+    inset 0 0 0 1px rgba(149,242,15,0.55),
+    0 14px 28px -10px rgba(0,0,0,0.55),
+    0 0 18px rgba(149,242,15,0.22);
+}
+.rs-stack-group.rs-cyan .rs-stack-chip:hover,
+.rs-stack-group.rs-cyan .rs-stack-chip.is-lifted {
+  color: #b8e7ff;
+  box-shadow:
+    inset 0 0 0 1px rgba(94,200,255,0.55),
+    0 14px 28px -10px rgba(0,0,0,0.55),
+    0 0 18px rgba(94,200,255,0.22);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rs-stack-grid { perspective: none; transform-style: flat; }
+  .rs-stack-group { transform-style: flat; will-change: auto; }
+  .rs-stack-chip { transform-style: flat; }
+}
 
 /* ============================================================
    FINAL CTA
@@ -2752,7 +2813,7 @@
     line-height: 1.25;
   }
   .rs-flow-sub {
-    white-space: normal;
+    white-space: pre-line;
     font-size: 11px;
     line-height: 1.4;
   }

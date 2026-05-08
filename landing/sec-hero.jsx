@@ -94,7 +94,7 @@ const Hero = () => {
           <div className="rs-hero-eyebrow">
             <span style={{ color: "var(--ember-500)" }}>[01]</span>
             <span className="rs-hero-eyebrow-line" />
-            <span className="rs-hero-eyebrow-text">SHOPIFY DEVELOPER · E-COMMERCE SYSTEMS</span>
+            <span className="rs-hero-eyebrow-text">SHOPIFY DEVELOPMENT · EXPERIÊNCIA COMERCIAL</span>
           </div>
 
           <h1 className="rs-hero-title">
@@ -107,9 +107,9 @@ const Hero = () => {
           </h1>
 
           <p className="rs-hero-sub">
-            Desenvolvo lojas, páginas e experiências Shopify para
-            e-commerces que precisam unir <span className="rs-strong">design,
-            dados, IA e operação</span>.
+            Desenvolvo lojas, product pages e landing pages em Shopify com
+            foco em <span className="rs-strong">clareza, experiência de compra
+            e performance comercial</span>.
           </p>
 
           <div className="rs-hero-ctas">
@@ -123,11 +123,11 @@ const Hero = () => {
 
           <div className="rs-hero-tags">
             {[
-              { label: "Shopify Dev",          accent: "shopify", live: true  },
-              { label: "Dashboards",           accent: "cyan",    live: false },
-              { label: "IA & Automação",       accent: "cyan",    live: true  },
-              { label: "Creative Performance", accent: "shopify", live: false },
-              { label: "Data Systems",         accent: "cyan",    live: false },
+              { label: "SHOPIFY DEVELOPMENT", accent: "shopify", live: true  },
+              { label: "PRODUCT PAGES",       accent: "cyan",    live: false },
+              { label: "LANDING PAGES",       accent: "cyan",    live: true  },
+              { label: "UX PARA E-COMMERCE",  accent: "shopify", live: false },
+              { label: "DADOS & OPERAÇÃO",    accent: "cyan",    live: false },
             ].map((c, i) => (
               <span
                 key={i}
@@ -172,12 +172,12 @@ const HeroOS = () => {
     return { x: n.x + t * dx, y: n.y + t * dy };
   };
   const nodes = [
-    { id: "shop",  x: 100, y: 110, label: "SHOPIFY",     sub: "ECOSSISTEMA",  icon: "shopify", accent: "shopify" },
-    { id: "ai",    x: 90,  y: 320, label: "IA APLICADA", sub: "INTELIGÊNCIA", icon: "ai",      accent: "cyan", live: true },
-    { id: "data",  x: 100, y: 530, label: "DADOS",       sub: "ESTRUTURADOS", icon: "data",    accent: "cyan" },
-    { id: "auto",  x: 280, y: 600, label: "AUTOMAÇÕES",  sub: "WORKFLOWS",    icon: "bolt",    accent: "ember" },
-    { id: "dash",  x: 600, y: 110, label: "DASHBOARD",   sub: "EXECUTIVO",    icon: "chart",   accent: "cyan", live: true },
-    { id: "creat", x: 620, y: 380, label: "CREATIVE",    sub: "PERFORMANCE",  icon: "spark",   accent: "violet" },
+    { id: "shop",  x: 100, y: 110, label: "SHOPIFY",     sub: "LOJA & PÁGINAS", icon: "shopify", accent: "shopify" },
+    { id: "ai",    x: 90,  y: 320, label: "IA DE APOIO", sub: "OPERAÇÃO",       icon: "ai",      accent: "cyan", live: true },
+    { id: "data",  x: 100, y: 530, label: "DADOS",       sub: "DECISÃO",        icon: "data",    accent: "cyan" },
+    { id: "auto",  x: 280, y: 600, label: "AUTOMAÇÕES",  sub: "FLUXOS",         icon: "bolt",    accent: "ember" },
+    { id: "dash",  x: 600, y: 110, label: "DASHBOARD",   sub: "PERFORMANCE",    icon: "chart",   accent: "cyan", live: true },
+    { id: "creat", x: 620, y: 380, label: "CRIATIVOS",   sub: "EXECUÇÃO",       icon: "spark",   accent: "violet" },
   ];
 
   return (
@@ -267,7 +267,7 @@ const HeroOS = () => {
         <CornerTicks color="rgba(149,242,15,0.58)" />
         <img className="rs-hub-logo" src="assets/shopify.png" alt="" aria-hidden="true" />
         <div className="rs-hub-os">SHOPIFY</div>
-        <div className="rs-hub-sub">COMMERCE OS</div>
+        <div className="rs-hub-sub">CORE</div>
         <span className="tt-pulse-dot rs-hub-live" />
       </div>
 

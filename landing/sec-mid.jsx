@@ -236,12 +236,12 @@ const Flow = () => {
   }, []);
 
   const flow = [
-    { id: "01", label: "LOJA SHOPIFY", sub: "Temas, PDPs e LPs\ncomo base da venda.",          icon: "shopify", accent: "ember" },
-    { id: "02", label: "DADOS",        sub: "Fontes e eventos\nconectados para ler.", icon: "data",    accent: "cyan" },
-    { id: "03", label: "IA",           sub: "Análise e criação\ncom mais velocidade.",   icon: "ai",      accent: "cyan",  live: true },
-    { id: "04", label: "DASHBOARD",    sub: "Métricas viram\nleitura e ação.",              icon: "chart",   accent: "cyan",  live: true },
-    { id: "05", label: "CRIATIVOS",    sub: "Copies e variações\ncom contexto real.",        icon: "spark",   accent: "cyan" },
-    { id: "06", label: "DECISÃO",      sub: "Próximos passos\npara produto e loja.",          icon: "bolt",    accent: "cyan", live: true },
+    { id: "01", label: "LOJA SHOPIFY", sub: "Temas, PDPs e LPs\npara compra mais clara.",      icon: "shopify", accent: "ember" },
+    { id: "02", label: "DADOS",        sub: "Fontes conectadas\npara ler performance.",        icon: "data",    accent: "cyan" },
+    { id: "03", label: "IA",           sub: "Apoio para análise\ne criação com contexto.",             icon: "ai",      accent: "cyan",  live: true },
+    { id: "04", label: "DASHBOARD",    sub: "Métricas organizadas\npara prioridade e ação.",      icon: "chart",   accent: "cyan",  live: true },
+    { id: "05", label: "CRIATIVOS",    sub: "Copies e variações\ncom contexto de execução.",     icon: "spark",   accent: "cyan" },
+    { id: "06", label: "DECISÃO",      sub: "Próximos passos para\nloja, produto e campanha.",    icon: "bolt",    accent: "cyan", live: true },
   ];
 
   return (
@@ -249,12 +249,12 @@ const Flow = () => {
       <div className="rs-container">
         <SectionHeader
           n="03"
-          eyebrow="OPERATIONAL FLOW"
+          eyebrow="SHOPIFY OPS FLOW"
           title={<>Uma operação conectada,<br/><span className="rs-italic rs-ember">não peças soltas.</span></>}
-          kicker="Shopify é a base comercial. Dados, IA, dashboard, criativos e decisão formam um loop para enxergar melhor, priorizar melhor e vender melhor."
+          kicker="Shopify é a base comercial. Dados, IA, leitura de performance e criativos formam um fluxo para enxergar melhor, priorizar melhor e evoluir loja, produto e campanha com mais clareza."
           side={
             <div className="rs-flow-side">
-              <span className="rs-chip rs-chip-live rs-chip-flow-status"><span className="tt-pulse-dot" />SISTEMA EM EXECUÇÃO</span>
+              <span className="rs-chip rs-chip-live rs-chip-flow-status"><span className="tt-pulse-dot" />OPERAÇÃO CONECTADA</span>
               <span className="rs-flow-breadcrumb">SHOPIFY → DADOS → IA → DASHBOARD → CRIATIVOS → DECISÃO</span>
             </div>
           }
@@ -337,7 +337,7 @@ const Flow = () => {
           <div className="rs-flow-feedback reveal" data-reveal>
               <span className="rs-flow-fb-label">
               <span className="rs-flow-fb-arrow">↺</span>
-              FEEDBACK LOOP · DECISÃO RETORNA PARA SHOPIFY, PRODUTO & CAMPANHA
+              FEEDBACK LOOP · A DECISÃO VOLTA PARA SHOPIFY, PRODUTO E CAMPANHA
             </span>
           </div>
 

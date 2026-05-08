@@ -11,21 +11,21 @@ const DashSection = () => (
           <div className="rs-section-eyebrow">
             <span className="rs-section-num">[04]</span>
             <span className="rs-section-line" />
-            <span>DASHBOARD · DATA SYSTEMS</span>
+            <span>DASHBOARD · LEITURA DE PERFORMANCE</span>
           </div>
           <h2 className="rs-section-title">
             Menos dados espalhados.<br/>
             <span className="rs-italic rs-ember">Mais decisão</span> para vender melhor.
           </h2>
           <p className="rs-section-kicker">
-            Dashboards para transformar <span className="rs-strong">Shopify, GA4,
-            Meta Ads, RD Station, Supabase e Sheets</span> em uma visão única de performance e prioridades.
+            Dashboards para reunir <span className="rs-strong">Shopify, GA4,
+            Meta Ads, RD Station, Supabase e Sheets</span> em uma visão única de performance, prioridade e decisão.
           </p>
 
           <div className="rs-psv">
             {[
               { k: "PROBLEMA", v: "Métricas dispersas e pouca clareza comercial." },
-              { k: "SISTEMA",  v: "KPIs, produtos, canais e funil em uma visão única." },
+              { k: "SISTEMA",  v: "KPIs, produtos, canais e funil reunidos em uma visão única." },
               { k: "VALOR",    v: "Mais velocidade para decidir onde agir primeiro." },
             ].map(r => (
               <div key={r.k} className="rs-psv-row">
@@ -460,35 +460,35 @@ const Projects = () => {
       n: "01", title: "Shopify Projects",
       status: "SHOPIFY · COMMERCE",
       problem: "Lojas com seções rígidas, PDPs fracas, landings genéricas e dependência de dev para cada ajuste.",
-      system: "Temas Shopify com seções modulares, product pages e landing pages pensadas para vender.",
-      value: "Mais autonomia para marketing, melhor experiência comercial e páginas que não só decoram — ajudam a converter.",
+      system: "Temas Shopify com seções modulares, product pages e landing pages construídas para vender com mais clareza.",
+      value: "Mais autonomia para marketing, melhor experiência comercial e páginas que ajudam a vender — não só a compor visualmente.",
       tags: ["Shopify", "Theme Sections", "PDP", "Landing"],
       accent: "ember",
       principal: true,
     },
     {
       n: "02", title: "Dashboard Agência",
-      status: "DATA · INTELLIGENCE",
+      status: "DECISÃO · PERFORMANCE",
       problem: "Dados espalhados em várias ferramentas, sem leitura comercial clara.",
-      system: "Dashboard conectando Shopify, GA4, dados de Meta, RD Station, Supabase e fontes operacionais.",
+      system: "Dashboard conectando Shopify, GA4, Meta Ads, RD Station, Supabase e fontes operacionais em uma leitura única.",
       value: "Mais clareza para priorizar canais, produtos e oportunidades sem depender de relatórios soltos.",
       tags: ["Shopify", "GA4", "Meta Ads", "RD Station", "Supabase"],
       accent: "cyan",
     },
     {
-      n: "03", title: "Creative Performance OS",
+      n: "03", title: "Creative Performance Flow",
       status: "CREATIVE · PERFORMANCE",
       problem: "Ideias, hipóteses e aprendizados criativos perdidos entre planilhas, briefings e conversas.",
-      system: "Fluxo para transformar dados, produto e insights em copies, prompts, checklists e handoffs.",
+      system: "Fluxo para transformar dados, produto e insights em copies, direcionamentos, checklists e handoffs.",
       value: "Criativos mais rastreáveis, menos retrabalho e mais contexto para quem executa mídia e design.",
       tags: ["Hypothesis", "Briefing", "Handoff", "Variations"],
       accent: "cyan",
     },
     {
-      n: "04", title: "Shopify Ops Automation",
-      status: "OPS · AUTOMATION",
+      n: "04", title: "Shopify Ops Flow",
+      status: "OPS · WORKFLOWS",
       problem: "Processos manuais, briefings soltos e informações importantes espalhadas entre loja, campanha e operação.",
-      system: "Fluxos para organizar demandas, handoffs, documentação, produto, campanhas e decisões com mais contexto.",
+      system: "Fluxos para organizar demandas, handoffs, documentação, produto, campanhas e decisões com mais contexto operacional.",
       value: "Menos retrabalho, mais velocidade operacional e uma rotina mais clara para marketing, design e e-commerce.",
       tags: ["Automation", "Workflows", "Handoffs", "Ops"],
       accent: "cyan",
@@ -569,7 +569,7 @@ const Projects = () => {
           n="05"
           eyebrow="EXPERIÊNCIA REAL"
           title={<>Projetos aplicados<br/>em <span className="rs-italic rs-ember">operações reais</span><br/>de e-commerce.</>}
-          kicker="Desenvolvimento Shopify e páginas comerciais como núcleo do trabalho — com dados, IA e sistemas apoiando operação, performance e decisão."
+          kicker="Desenvolvimento Shopify e páginas comerciais como núcleo do trabalho — com dados, IA e automações apoiando operação, performance e decisão."
         />
 
         <div className="rs-clients reveal" data-reveal>
@@ -623,9 +623,9 @@ const Timeline = () => {
   const sectionRef = React.useRef(null);
   const steps = [
     { k: "Origem", t: "Design & UX/UI", d: "Hierarquia, experiência e conversão como base.", accent: "quiet" },
-    { k: "Centro", t: "Shopify Development", d: "Temas, seções, PDPs, landing pages e arquitetura comercial.", accent: "shopify" },
+    { k: "Centro", t: "Shopify Development", d: "Temas, seções, product pages, landing pages e arquitetura comercial.", accent: "shopify" },
     { k: "Leitura", t: "Dados & Dashboards", d: "Métricas transformadas em leitura e prioridade.", accent: "data" },
-    { k: "Camada atual", t: "IA, Automação & Performance", d: "Processos, criação e documentação com mais velocidade.", accent: "intelligence" },
+    { k: "Camada atual", t: "IA, Automação & Operação", d: "Processos, criação e documentação com mais contexto e agilidade.", accent: "intelligence" },
   ];
 
   React.useLayoutEffect(() => {
@@ -703,7 +703,7 @@ const Timeline = () => {
               <span className="rs-tl-mask"><span className="rs-tl-mask-inner">A base visual virou vantagem técnica.</span></span>
             </p>
             <p>
-              <span className="rs-tl-mask"><span className="rs-tl-mask-inner">Design deu a base. Shopify virou o centro. Dados, IA e automação ampliaram a forma de construir.</span></span>
+              <span className="rs-tl-mask"><span className="rs-tl-mask-inner">O design trouxe repertório visual e de experiência. Shopify virou o centro da entrega. Dados, IA e automação ampliaram a capacidade de construir com mais contexto e clareza operacional.</span></span>
             </p>
             <a
               className="rs-btn rs-btn-primary rs-tl-story-cta"
@@ -716,8 +716,12 @@ const Timeline = () => {
           </div>
 
           <div className="rs-tl-chapters" aria-label="Capítulos da trajetória profissional">
-            {/* Scroll-driven playhead — descends the rail with --tl-progress */}
+            {/* Scroll-driven playhead — descends along the rail */}
             <span className="rs-tl-playhead" aria-hidden="true" />
+            {/* Autonomous packets — keep the rail alive while at rest */}
+            <span className="rs-tl-pkt rs-tl-pkt--1" aria-hidden="true" />
+            <span className="rs-tl-pkt rs-tl-pkt--2" aria-hidden="true" />
+            <span className="rs-tl-pkt rs-tl-pkt--3" aria-hidden="true" />
             {steps.map((s, i) => (
               <article key={s.t} className={`rs-tl-step rs-tl-${s.accent}`}>
                 <div className="rs-tl-mark">
@@ -740,109 +744,191 @@ const Timeline = () => {
 // ---------- STACK ----------
 const Stack = () => {
   const sectionRef = React.useRef(null);
+  const gridRef = React.useRef(null);
   const groups = [
     { title: "Shopify & Front-end", accent: "ember",
       items: ["Shopify", "Theme Dev", "Liquid", "JavaScript", "React", "Next.js", "Git", "GitHub", "Vercel"] },
     { title: "Dados & Dashboards", accent: "cyan",
       items: ["GA4", "Meta Ads", "Supabase", "PostgreSQL", "Google Sheets", "Data Analysis", "Dashboards", "RD Station"] },
     { title: "IA & Automação", accent: "cyan",
-      items: ["OpenAI", "Claude", "Prompts", "AI Automation", "Obsidian", "Knowledge Base", "Process Automation"] },
-    { title: "Performance Criativa", accent: "ember",
-      items: ["Creative Performance", "Landing Pages", "Product Pages", "Ads Copy", "CRO", "UX/UI", "Web Design"] },
+      items: ["OpenAI", "Claude", "Prompts", "AI Automation", "Process Automation"] },
+    { title: "Páginas & Criativos", accent: "ember",
+      items: ["Landing Pages", "Product Pages", "UX/UI", "CRO", "Ads Copy", "Web Design"] },
   ];
 
   React.useLayoutEffect(() => {
     const el = sectionRef.current;
+    const grid = gridRef.current;
     const M = window.RSMotion;
-    if (!el || !M || !M.ready || M.reduced) return;
+    if (!el || !grid || !M || !M.ready) return;
 
     const gsap = window.gsap;
+    const reduced = !!M.reduced;
+    const cleanups = [];
 
     const ctx = M.context(() => {
       const q = gsap.utils.selector(el);
       const groupEls = q(".rs-stack-group");
-      if (!groupEls.length) return;
+      const chipEls  = Array.from(grid.querySelectorAll(".rs-stack-chip"));
+      if (!groupEls.length || !chipEls.length) return;
 
-      // Pré-estados — boot sequence: tudo "off" até o ScrollTrigger disparar
-      gsap.set(groupEls, { opacity: 0, y: 14 });
-      gsap.set(q(".rs-stack-dot"), { scale: 0, transformOrigin: "center center" });
-      gsap.set(q(".rs-stack-title, .rs-stack-status"), { opacity: 0 });
-      gsap.set(q(".rs-stack-chip"), { opacity: 0, x: -8 });
+      // reduced motion: estado natural, sem animação nem tilt
+      if (reduced) return;
+
+      // ---------- SCATTER: posições aleatórias por chip ----------
+      // Mede a posição NATURAL via offset chain (não depende de transforms),
+      // depois sorteia um destino dentro da grid e converte em delta x/y.
+      const scatterMap = new WeakMap();
+      const computeScatter = () => {
+        const gridRect = grid.getBoundingClientRect();
+        const margin = 16;
+        chipEls.forEach((chip) => {
+          let nx = 0, ny = 0;
+          let n = chip;
+          while (n && n !== grid) {
+            nx += n.offsetLeft;
+            ny += n.offsetTop;
+            n = n.offsetParent;
+          }
+          const cw = chip.offsetWidth;
+          const ch = chip.offsetHeight;
+          const availW = Math.max(0, gridRect.width  - cw - 2 * margin);
+          const availH = Math.max(0, gridRect.height - ch - 2 * margin);
+          const tX = margin + Math.random() * availW;
+          const tY = margin + Math.random() * availH;
+          scatterMap.set(chip, {
+            x: tX - nx,
+            y: tY - ny,
+            rot: (Math.random() - 0.5) * 140, // -70° a 70°
+            scale: 0.88 + Math.random() * 0.18,
+          });
+        });
+      };
+      computeScatter();
+
+      // Pré-estado: chips invisíveis, espalhados, rotacionados.
+      // Cards/dots/títulos/status permanecem visíveis (sem boot prévio).
+      gsap.set(chipEls, {
+        opacity: 0,
+        x:        (i, t) => scatterMap.get(t)?.x ?? 0,
+        y:        (i, t) => scatterMap.get(t)?.y ?? 0,
+        rotation: (i, t) => scatterMap.get(t)?.rot ?? 0,
+        scale:    (i, t) => scatterMap.get(t)?.scale ?? 1,
+        transformOrigin: "center center",
+      });
 
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
         scrollTrigger: {
           trigger: el,
           start: "top 75%",
           once: true,
           invalidateOnRefresh: true,
+          onRefresh: computeScatter,
         },
       });
 
-      // BOOT SEQUENCE — cada grupo "liga" como um terminal, em cascata
-      groupEls.forEach((group, gIdx) => {
-        const at = gIdx === 0 ? 0 : `>-=0.45`;
-        const dot = group.querySelector(".rs-stack-dot");
-        const title = group.querySelector(".rs-stack-title");
-        const status = group.querySelector(".rs-stack-status");
-        const chips = group.querySelectorAll(".rs-stack-chip");
-
-        // 1) container do grupo aparece
-        tl.to(group, { opacity: 1, y: 0, duration: 0.35 }, at);
-        // 2) dot "acende" (back ease — cara de LED ligando)
-        tl.to(dot, { scale: 1, duration: 0.32, ease: "back.out(2)" }, "<+0.05");
-        // 3) título aparece com leve fade
-        tl.to(title, { opacity: 1, duration: 0.25 }, "<+0.05");
-        // 4) chips entram um a um — boot rápido tipo terminal
-        tl.to(chips, { opacity: 1, x: 0, duration: 0.18, stagger: 0.035, ease: "power2.out" }, "<+0.05");
-        // 5) STATUS: ONLINE acende ao final do boot do grupo
-        if (status) {
-          tl.fromTo(status,
-            { opacity: 0, scale: 0.8 },
-            { opacity: 1, scale: 1, duration: 0.28, ease: "back.out(1.6)" },
-            ">-=0.05"
-          );
-        }
+      // 1) Materializa scattered (caos)
+      tl.to(chipEls, {
+        opacity: 1,
+        duration: 0.42,
+        stagger: { each: 0.012, from: "random" },
+        ease: "power2.out",
       });
 
-      // ACTIVITY PULSE — após o boot, um chip aleatório por grupo pisca em loop infinito
-      const pulseChip = (chip, accent) => {
-        const accentColor = accent === "ember" ? "rgba(149,242,15,0.7)" : "rgba(94,200,255,0.6)";
-        const accentText  = accent === "ember" ? "#a3ff12" : "#5ec8ff";
-        gsap.timeline()
-          .to(chip, {
-            color: accentText,
-            boxShadow: `inset 0 0 0 1px ${accentColor}, 0 0 14px ${accentColor}`,
-            duration: 0.18, ease: "power2.out",
-          })
-          .to(chip, {
-            duration: 0.5, ease: "power2.in",
-            onComplete: () => {
-              chip.style.removeProperty("color");
-              chip.style.removeProperty("box-shadow");
-            },
+      // 2) Hold curto pro caos ser percebido
+      tl.addLabel("snap", "+=0.32");
+
+      // 3) SNAP — chips voam magneticamente para a posição correta
+      tl.to(chipEls, {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        scale: 1,
+        duration: 0.95,
+        ease: "back.out(1.5)",
+        stagger: { each: 0.018, from: "random" },
+        onComplete: attach3DRefinement,
+      }, "snap");
+
+      // ---------- REFINAMENTO: 3D depth + chip lift (após snap) ----------
+      function attach3DRefinement() {
+        const isCoarse = window.matchMedia("(pointer: coarse)").matches;
+        if (isCoarse) return; // touch: sem tilt parallax
+
+        // Tilt 3D dos cards seguindo o cursor sobre a grid
+        const onMove = (e) => {
+          const r = grid.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width  - 0.5; // -0.5 .. 0.5
+          const py = (e.clientY - r.top)  / r.height - 0.5;
+          const maxTilt = 4; // graus
+          groupEls.forEach((g) => {
+            gsap.to(g, {
+              rotateX: -py * maxTilt,
+              rotateY:  px * maxTilt,
+              duration: 0.6,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
           });
-      };
-
-      const tickActivity = () => {
-        groupEls.forEach(group => {
-          const chips = group.querySelectorAll(".rs-stack-chip");
-          if (!chips.length) return;
-          const accent = group.classList.contains("rs-ember") ? "ember" : "cyan";
-          const chip = chips[Math.floor(Math.random() * chips.length)];
-          pulseChip(chip, accent);
+        };
+        const onLeave = () => {
+          groupEls.forEach((g) => {
+            gsap.to(g, {
+              rotateX: 0,
+              rotateY: 0,
+              duration: 0.8,
+              ease: "power3.out",
+              overwrite: "auto",
+            });
+          });
+        };
+        grid.addEventListener("mousemove", onMove);
+        grid.addEventListener("mouseleave", onLeave);
+        cleanups.push(() => {
+          grid.removeEventListener("mousemove", onMove);
+          grid.removeEventListener("mouseleave", onLeave);
         });
-        // Próximo pulso entre 2.8s e 5s
-        gsap.delayedCall(2.8 + Math.random() * 2.2, tickActivity);
-      };
 
-      // Inicia o pulso 0.6s depois do boot terminar
-      tl.call(() => {
-        gsap.delayedCall(0.6, tickActivity);
-      });
+        // Chip lift on hover/focus — translateZ + scale (transformação 3D)
+        chipEls.forEach((chip) => {
+          const lift = () => {
+            gsap.to(chip, {
+              z: 18,
+              scale: 1.06,
+              duration: 0.28,
+              ease: "power3.out",
+              overwrite: "auto",
+            });
+            chip.classList.add("is-lifted");
+          };
+          const drop = () => {
+            gsap.to(chip, {
+              z: 0,
+              scale: 1,
+              duration: 0.4,
+              ease: "power3.out",
+              overwrite: "auto",
+            });
+            chip.classList.remove("is-lifted");
+          };
+          chip.addEventListener("mouseenter", lift);
+          chip.addEventListener("mouseleave", drop);
+          chip.addEventListener("focus", lift);
+          chip.addEventListener("blur", drop);
+          cleanups.push(() => {
+            chip.removeEventListener("mouseenter", lift);
+            chip.removeEventListener("mouseleave", drop);
+            chip.removeEventListener("focus", lift);
+            chip.removeEventListener("blur", drop);
+          });
+        });
+      }
     }, el);
 
-    return () => ctx.revert();
+    return () => {
+      cleanups.forEach((fn) => fn());
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -854,7 +940,7 @@ const Stack = () => {
           title={<>Stack conectado<br/>à <span className="rs-italic rs-ember">operação real</span>.</>}
           kicker="Ferramentas usadas para construir, medir, automatizar e melhorar lojas Shopify com mais clareza comercial."
         />
-        <div className="rs-stack-grid">
+        <div className="rs-stack-grid" ref={gridRef}>
           {groups.map((g) => (
             <div key={g.title} className={`rs-stack-group rs-${g.accent}`}>
               <CornerTicks color={g.accent === "ember" ? "var(--ember-500)" : "var(--cyan-400)"} />
@@ -917,13 +1003,14 @@ const FinalCTA = () => (
       </span>
 
       <h2 className="rs-cta-title">
-        Vamos preparar sua loja <span className="rs-shopify-green">Shopify</span><br/>
-        para vender melhor
+        Vamos construir sua próxima<br/>
+        loja <span className="rs-shopify-green">Shopify</span>
       </h2>
 
       <p className="rs-cta-sub">
-        Lojas, páginas e experiências comerciais com design, dados e operação
-        trabalhando juntos para transformar tráfego em decisão de compra.
+        Lojas, product pages e landing pages em Shopify com design, dados e
+        operação trabalhando juntos para melhorar clareza, experiência de
+        compra e decisão.
       </p>
 
       <div className="rs-cta-buttons">
@@ -951,11 +1038,11 @@ const FinalCTA = () => (
             <div className="rs-footer-logo">R</div>
             <div>
               <div className="rs-footer-name">RAFAEL SILVA</div>
-              <div className="rs-footer-sub">SHOPIFY DEVELOPER · UX/UI · DADOS &amp; IA</div>
+              <div className="rs-footer-sub">SHOPIFY DEVELOPER · EXPERIÊNCIA COMERCIAL · OPERAÇÃO</div>
             </div>
           </div>
         </div>
-        <div className="rs-footer-mid">© 2026 · Lojas Shopify com design, dados e operação conectados.</div>
+        <div className="rs-footer-mid">© 2026 · Lojas Shopify com mais clareza comercial, estrutura e operação conectada.</div>
         <div className="rs-footer-right" aria-hidden="true"></div>
       </div>
     </footer>
