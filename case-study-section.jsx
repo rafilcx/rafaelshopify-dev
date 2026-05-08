@@ -40,7 +40,7 @@ const CaseStudySection = () => {
             color: "var(--fg-300)", maxWidth: 460, textWrap: "pretty",
           }}>
             Dashboards para transformar
-            <span style={{ color: "var(--fg-100)" }}> Shopify, GA4, RD Station,
+            <span style={{ color: "var(--fg-100)" }}> Shopify, GA4, dados de Meta, RD Station,
             Supabase e Sheets</span> em uma visão única de performance, produtos,
             canais e prioridades.
           </p>

@@ -99,10 +99,10 @@ const Hero = () => {
 
           <h1 className="rs-hero-title">
             <span className="rs-hero-line">
-              <span className="rs-hero-line-inner">Lojas <span className="rs-shopify-green">Shopify</span> preparadas</span>
+              <span className="rs-hero-line-inner">Lojas <span className="rs-shopify-green">Shopify</span></span>
             </span>
             <span className="rs-hero-line">
-              <span className="rs-hero-line-inner">para vender melhor</span>
+              <span className="rs-hero-line-inner">pensadas para vender mais</span>
             </span>
           </h1>
 

@@ -236,12 +236,12 @@ const Flow = () => {
   }, []);
 
   const flow = [
-    { id: "01", label: "LOJA SHOPIFY", sub: "Tema, PDPs, LPs e seções\ncomo base da venda.",          icon: "shopify", accent: "ember" },
-    { id: "02", label: "DADOS",        sub: "Eventos e fontes conectadas\npara enxergar o que importa.", icon: "data",    accent: "cyan" },
-    { id: "03", label: "IA",           sub: "Análise, criação e documentação\ncom mais velocidade.",   icon: "ai",      accent: "cyan",  live: true },
-    { id: "04", label: "DASHBOARD",    sub: "Métricas viram leitura,\nprioridade e ação.",              icon: "chart",   accent: "cyan",  live: true },
-    { id: "05", label: "CRIATIVOS",    sub: "Hipóteses, copies e variações\ncom contexto real.",        icon: "spark",   accent: "cyan" },
-    { id: "06", label: "DECISÃO",      sub: "Próximos passos para loja,\nproduto e campanha.",          icon: "bolt",    accent: "cyan", live: true },
+    { id: "01", label: "LOJA SHOPIFY", sub: "Temas, PDPs e LPs\ncomo base da venda.",          icon: "shopify", accent: "ember" },
+    { id: "02", label: "DADOS",        sub: "Fontes e eventos\nconectados para ler.", icon: "data",    accent: "cyan" },
+    { id: "03", label: "IA",           sub: "Análise e criação\ncom mais velocidade.",   icon: "ai",      accent: "cyan",  live: true },
+    { id: "04", label: "DASHBOARD",    sub: "Métricas viram\nleitura e ação.",              icon: "chart",   accent: "cyan",  live: true },
+    { id: "05", label: "CRIATIVOS",    sub: "Copies e variações\ncom contexto real.",        icon: "spark",   accent: "cyan" },
+    { id: "06", label: "DECISÃO",      sub: "Próximos passos\npara produto e loja.",          icon: "bolt",    accent: "cyan", live: true },
   ];
 
   return (
@@ -284,8 +284,21 @@ const Flow = () => {
             <span className="rs-flow-link-label rs-flow-link-5">retorna</span>
           </div>
 
-          {/* Mobile vertical line */}
-          <div className="rs-flow-line-mobile" aria-hidden="true" />
+          {/* Mobile vertical line — dashed animated gradient, same style as desktop */}
+          <svg className="rs-flow-line-mobile" viewBox="0 0 24 1200" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="flow-grad-v" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   stopColor="rgba(149,242,15,0.28)" />
+                <stop offset="35%"  stopColor="rgba(94,200,255,0.5)" />
+                <stop offset="70%"  stopColor="rgba(94,200,255,0.5)" />
+                <stop offset="100%" stopColor="rgba(149,242,15,0.24)" />
+              </linearGradient>
+            </defs>
+            <line x1="12" y1="0" x2="12" y2="1200" stroke="var(--rule-300)" strokeWidth="1" />
+            <line x1="12" y1="0" x2="12" y2="1200" stroke="url(#flow-grad-v)" strokeWidth="1.5"
+                  strokeDasharray="4 10" style={{ animation: "tt-flow 3s linear infinite" }} />
+          </svg>
+          <span className="rs-flow-scrub-pulse-mobile" aria-hidden="true" />
 
           {/* Data-handoff hops — short bursts node→node, like packets (desktop horizontal) */}
           <span className="rs-flow-hop rs-flow-hop--1" aria-hidden="true"><span className="rs-flow-hop-dot" /></span>

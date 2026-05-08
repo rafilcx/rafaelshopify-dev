@@ -19,7 +19,7 @@ const DashSection = () => (
           </h2>
           <p className="rs-section-kicker">
             Dashboards para transformar <span className="rs-strong">Shopify, GA4,
-            RD Station, Supabase e Sheets</span> em uma visão única de performance e prioridades.
+            Meta Ads, RD Station, Supabase e Sheets</span> em uma visão única de performance e prioridades.
           </p>
 
           <div className="rs-psv">
@@ -294,7 +294,7 @@ const DashboardWidget = () => {
       </div>
 
       <div className="rs-w-tags">
-        {["Shopify","GA4","RD Station","Supabase","Sheets","Dashboards"].map(t => (
+        {["Shopify","GA4","Meta Ads","RD Station","Supabase","Sheets","Dashboards"].map(t => (
           <span key={t} className="rs-chip rs-chip-sm">{t}</span>
         ))}
       </div>
@@ -398,43 +398,50 @@ const Projects = () => {
     if (!row) return;
 
     let isDown = false;
+    let hasDragged = false;
     let startX;
     let scrollLeft;
+    const moveThreshold = 5; // px
 
     const onDown = (e) => {
       isDown = true;
-      row.classList.add("is-dragging");
-      startX = (e.pageX || e.touches[0].pageX) - row.offsetLeft;
+      hasDragged = false;
+      startX = e.pageX - row.offsetLeft;
       scrollLeft = row.scrollLeft;
     };
     const onUp = () => {
       isDown = false;
-      row.classList.remove("is-dragging");
+      // Pequeno delay para garantir que o click seja processado antes de remover is-dragging
+      setTimeout(() => {
+        row.classList.remove("is-dragging");
+      }, 60);
     };
     const onMove = (e) => {
       if (!isDown) return;
-      e.preventDefault();
-      const x = (e.pageX || e.touches[0].pageX) - row.offsetLeft;
+      const x = e.pageX - row.offsetLeft;
       const walk = (x - startX) * 1.2;
-      row.scrollLeft = scrollLeft - walk;
+
+      if (!hasDragged && Math.abs(walk) > moveThreshold) {
+        hasDragged = true;
+        row.classList.add("is-dragging");
+      }
+
+      if (hasDragged) {
+        e.preventDefault();
+        row.scrollLeft = scrollLeft - walk;
+      }
     };
 
     row.addEventListener("mousedown", onDown);
     row.addEventListener("mouseleave", onUp);
     row.addEventListener("mouseup", onUp);
     row.addEventListener("mousemove", onMove);
-    row.addEventListener("touchstart", onDown, { passive: false });
-    row.addEventListener("touchend", onUp);
-    row.addEventListener("touchmove", onMove, { passive: false });
 
     return () => {
       row.removeEventListener("mousedown", onDown);
       row.removeEventListener("mouseleave", onUp);
       row.removeEventListener("mouseup", onUp);
       row.removeEventListener("mousemove", onMove);
-      row.removeEventListener("touchstart", onDown);
-      row.removeEventListener("touchend", onUp);
-      row.removeEventListener("touchmove", onMove);
     };
   }, []);
 
@@ -463,9 +470,9 @@ const Projects = () => {
       n: "02", title: "Dashboard Agência",
       status: "DATA · INTELLIGENCE",
       problem: "Dados espalhados em várias ferramentas, sem leitura comercial clara.",
-      system: "Dashboard conectando Shopify, GA4, RD Station, Supabase e fontes operacionais.",
+      system: "Dashboard conectando Shopify, GA4, dados de Meta, RD Station, Supabase e fontes operacionais.",
       value: "Mais clareza para priorizar canais, produtos e oportunidades sem depender de relatórios soltos.",
-      tags: ["Shopify", "GA4", "RD Station", "Supabase"],
+      tags: ["Shopify", "GA4", "Meta Ads", "RD Station", "Supabase"],
       accent: "cyan",
     },
     {
@@ -737,7 +744,7 @@ const Stack = () => {
     { title: "Shopify & Front-end", accent: "ember",
       items: ["Shopify", "Theme Dev", "Liquid", "JavaScript", "React", "Next.js", "Git", "GitHub", "Vercel"] },
     { title: "Dados & Dashboards", accent: "cyan",
-      items: ["GA4", "Supabase", "PostgreSQL", "Google Sheets", "Data Analysis", "Dashboards", "RD Station"] },
+      items: ["GA4", "Meta Ads", "Supabase", "PostgreSQL", "Google Sheets", "Data Analysis", "Dashboards", "RD Station"] },
     { title: "IA & Automação", accent: "cyan",
       items: ["OpenAI", "Claude", "Prompts", "AI Automation", "Obsidian", "Knowledge Base", "Process Automation"] },
     { title: "Performance Criativa", accent: "ember",

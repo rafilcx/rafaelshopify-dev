@@ -300,6 +300,8 @@
   margin-top: 40px;
   display: flex; gap: 16px;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 /* Buttons render statically — they fade in with the parent .rs-hero-copy
    reveal. Keeping them outside the GSAP timeline avoids paint-order races
@@ -2570,13 +2572,15 @@
 
   .rs-hero-ctas {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    align-self: flex-start;  /* override .rs-hero-grid align-items: center */
+    width: 100%;
     gap: 10px;
     margin-top: 24px;
   }
   .rs-hero-ctas .rs-btn {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    justify-content: flex-start;
     padding: 16px 20px;
     font-size: 13px;
   }
@@ -2662,25 +2666,24 @@
     padding: 8px 0 4px;
   }
   /* Lock idx column width so the line aligns predictably with icon centers.
-     idx (32) + step.gap (14) + node/2 (38) = 84px → vertical line at 84px. */
+     idx (26) + step.gap (14) + node/2 (38) = 78px → vertical line at 78px. */
   .rs-flow-idx { flex: 0 0 32px; min-width: 32px; }
 
   .rs-flow-line-mobile {
     display: block;
     position: absolute;
-    left: 84px;
+    left: 72px;          /* SVG line at viewBox x=12 → absolute 72+12=84px (icon center) */
     top: 38px;
-    bottom: 300px;
-    width: 1px;
-    background: linear-gradient(180deg,
-      rgba(149,242,15,0.50) 0%,
-      rgba(94,200,255,0.80) 40%,
-      rgba(94,200,255,0.80) 60%,
-      rgba(149,242,15,0.50) 100%);
-    opacity: 1;
+    height: 480px;       /* stop near card 6 icon — decrease this to shorten further */
+    bottom: auto;
+    width: 24px;
+    opacity: 0.9;
     pointer-events: none;
-    z-index: 3;
-    box-shadow: 0 0 8px rgba(94,200,255,0.35);
+    z-index: 1;
+    overflow: visible;
+  }
+  .rs-flow-line-mobile line {
+    vector-effect: non-scaling-stroke;
   }
   /* Big autonomous mobile pulse — disabled per design */
   .rs-flow-scrub-pulse-mobile { display: none; }
@@ -2691,9 +2694,10 @@
     position: absolute;
     left: 84px;
     top: 38px;
-    bottom: 300px;
+    height: 480px;       /* match line — must equal .rs-flow-line-mobile height */
+    bottom: auto;
     width: 0;
-    z-index: 2;
+    z-index: 4;
     pointer-events: none;
   }
   .rs-flow-vhop-dot {
@@ -2829,7 +2833,6 @@
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
     gap: 0;
     padding-bottom: 8px;
     padding-right: 20px;
@@ -2849,7 +2852,6 @@
   .rs-clients-row::-webkit-scrollbar { display: none; }
   .rs-client-chip {
     flex: 0 0 auto;
-    scroll-snap-align: center;
     padding-right: 14px;
     padding-left: 14px;
   }
