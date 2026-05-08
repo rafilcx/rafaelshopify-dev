@@ -825,7 +825,7 @@ const About = () => {
 
               <div className="rs-about-photo">
                 <img
-                  src="uploads/rafilcx.png"
+                  src="/assets/raficlx.png"
                   alt="Retrato de Rafael Silva — Head de Tecnologia"
                   loading="lazy"
                   decoding="async"

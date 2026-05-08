@@ -20,7 +20,8 @@ Landing estática hospedada na Vercel em `https://rafaelshopify.dev`.
 ├── sitemap.xml
 ├── vercel.json             # cleanUrls + trailingSlash:false
 ├── /assets
-│   └── shopify.png         # logo Shopify usado no Hub do Hero
+│   ├── shopify.png         # logo Shopify usado no Hub do Hero
+│   └── raficlx.png         # retrato usado na seção Sobre
 └── /landing
     ├── app.jsx             # shell + Nav + reveal observer
     ├── motion.js           # wrapper RSMotion (GSAP + ScrollTrigger)
