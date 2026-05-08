@@ -48,6 +48,7 @@ const App = () => {
         <Flow />
         <DashSection />
         <Projects />
+        <About />
         <Timeline />
         <Stack />
         <FinalCTA />
@@ -126,6 +127,7 @@ const Nav = () => {
     { href: "#flow",      label: "Operação"   },
     { href: "#dashboard", label: "Dados"      },
     { href: "#projetos",  label: "Projetos"   },
+    { href: "#sobre",     label: "Sobre"      },
     { href: "#evolucao",  label: "Trajetória" },
     { href: "#stack",     label: "Stack"      },
   ];

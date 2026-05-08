@@ -1,5 +1,5 @@
 // ============================================================
-// LANDING — Dashboard Preview, Projects, Timeline, Stack, CTA
+// LANDING — Dashboard Preview, Projects, About, Timeline, Stack, CTA
 // ============================================================
 
 // ---------- DASHBOARD PREVIEW ----------
@@ -618,6 +618,283 @@ const Projects = () => {
   );
 };
 
+// ---------- ABOUT ----------
+const About = () => {
+  const sectionRef = React.useRef(null);
+
+  React.useLayoutEffect(() => {
+    const el = sectionRef.current;
+    const M = window.RSMotion;
+    if (!el || !M || !M.ready || M.reduced) return;
+    const gsap = window.gsap;
+
+    // Helper: split a text node into per-char spans (preserves whitespace)
+    const splitChars = (target) => {
+      if (!target) return [];
+      if (target.dataset.split === "1") {
+        return Array.from(target.querySelectorAll(".rs-about-char"));
+      }
+      const text = target.textContent;
+      target.textContent = "";
+      const frag = document.createDocumentFragment();
+      const spans = [];
+      for (const ch of text) {
+        const s = document.createElement("span");
+        s.className = "rs-about-char";
+        s.textContent = ch === " " ? " " : ch;
+        frag.appendChild(s);
+        spans.push(s);
+      }
+      target.appendChild(frag);
+      target.dataset.split = "1";
+      return spans;
+    };
+
+    // Helper: scramble swap-in (homemade — no SplitText/ScrambleText plugin)
+    const scrambleTo = (target, finalText, duration = 0.55) => {
+      const glyphs = "01<>{}/!@#$%&*?ABXYZ▓░█";
+      const arr = Array.from(finalText);
+      const obj = { p: 0 };
+      return gsap.to(obj, {
+        p: 1, duration, ease: "none",
+        onUpdate: () => {
+          const t = obj.p;
+          let out = "";
+          for (let i = 0; i < arr.length; i++) {
+            const settle = (i / arr.length) * 0.82;
+            if (t >= settle + 0.18 || arr[i] === " ") out += arr[i];
+            else out += glyphs[(Math.random() * glyphs.length) | 0];
+          }
+          target.textContent = out;
+        },
+        onComplete: () => { target.textContent = finalText; },
+      });
+    };
+
+    const ctx = M.context(() => {
+      const q = gsap.utils.selector(el);
+
+      const eyebrowEls = q(".rs-about-head .rs-section-eyebrow > *");
+      const t1         = el.querySelector(".rs-about-t1");
+      const t2Em       = el.querySelector(".rs-about-t2-em");
+      const t2Tail     = el.querySelector(".rs-about-t2-tail");
+      const frame      = el.querySelector(".rs-about-frame");
+      const photoImg   = el.querySelector(".rs-about-photo img");
+      const cornerTL   = el.querySelector(".rs-about-photo-corner--tl");
+      const cornerTR   = el.querySelector(".rs-about-photo-corner--tr");
+      const cornerBL   = el.querySelector(".rs-about-photo-corner--bl");
+      const cornerBR   = el.querySelector(".rs-about-photo-corner--br");
+      const scanBoot   = el.querySelector(".rs-about-photo-scan-boot");
+      const headBar    = q(".rs-about-frame-head > *");
+      const footRows   = q(".rs-about-frame-foot-row");
+      const bodyEls    = q(".rs-about-body > *");
+      const badgeEls   = q(".rs-about-badges .rs-chip");
+
+      const t1Chars  = splitChars(t1);
+      const t2EmText = t2Em ? t2Em.textContent : "";
+      if (t2Em) t2Em.textContent = "";
+
+      // Initial states
+      gsap.set(eyebrowEls, { opacity: 0, y: 8 });
+      gsap.set(t1Chars,    { opacity: 0, y: 22, rotateX: -45, transformOrigin: "50% 100%" });
+      gsap.set(t2Em,       { opacity: 0 });
+      gsap.set(t2Tail,     { opacity: 0, y: 6 });
+      if (frame) gsap.set(frame, { opacity: 0, y: 22, filter: "blur(10px)" });
+      if (photoImg) gsap.set(photoImg, {
+        filter: "brightness(0.35) saturate(0.2) blur(6px) contrast(1.1)",
+        scale: 1.06,
+        transformOrigin: "50% 50%",
+      });
+      if (cornerTL) gsap.set(cornerTL, { transformOrigin: "0% 0%",     scale: 0 });
+      if (cornerTR) gsap.set(cornerTR, { transformOrigin: "100% 0%",   scale: 0 });
+      if (cornerBL) gsap.set(cornerBL, { transformOrigin: "0% 100%",   scale: 0 });
+      if (cornerBR) gsap.set(cornerBR, { transformOrigin: "100% 100%", scale: 0 });
+      if (scanBoot) gsap.set(scanBoot, { opacity: 0, top: "-3%" });
+      gsap.set(headBar,  { opacity: 0, y: 6 });
+      gsap.set(footRows, { opacity: 0, x: -8 });
+      gsap.set(bodyEls,  { opacity: 0, y: 10 });
+      gsap.set(badgeEls, { opacity: 0, y: 14, scale: 0.9 });
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        scrollTrigger: { trigger: el, start: "top 75%", once: true, invalidateOnRefresh: true },
+      });
+
+      // 1. Eyebrow line in
+      tl.to(eyebrowEls, { opacity: 1, y: 0, duration: 0.4, stagger: 0.05 });
+
+      // 2. Title line 1 — char cascade with rotateX flip-up
+      tl.to(t1Chars, {
+        opacity: 1, y: 0, rotateX: 0,
+        duration: 0.55, ease: "back.out(1.6)", stagger: 0.025,
+      }, "-=0.20");
+
+      // 3. Scramble swap-in for "Dados, IA e automação"
+      if (t2Em && t2EmText) {
+        tl.to(t2Em, { opacity: 1, duration: 0.05 }, "-=0.30")
+          .add(scrambleTo(t2Em, t2EmText, 0.55), "<");
+      }
+
+      // 4. Tail "como extensão da operação." fades in
+      tl.to(t2Tail, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, "-=0.05");
+
+      // 5. Frame materializes (fade + de-blur)
+      if (frame) {
+        tl.to(frame, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" }, "-=0.55");
+      }
+
+      // 6. Corners draw in TL → TR → BR → BL
+      const cornerOrder = [cornerTL, cornerTR, cornerBR, cornerBL].filter(Boolean);
+      tl.to(cornerOrder, { scale: 1, duration: 0.28, ease: "back.out(2)", stagger: 0.07 }, "-=0.45");
+
+      // 7. One-shot scan-boot sweep + photo de-blur in parallel
+      if (scanBoot) {
+        tl.to(scanBoot, { opacity: 0.95, duration: 0.08 }, "-=0.40")
+          .to(scanBoot, { top: "102%", duration: 0.95, ease: "power1.inOut" }, "<")
+          .to(scanBoot, { opacity: 0, duration: 0.18 }, "-=0.20");
+      }
+      if (photoImg) {
+        tl.to(photoImg, {
+          filter: "brightness(0.96) saturate(0.92) contrast(1.04) blur(0px)",
+          scale: 1,
+          duration: 0.95, ease: "power2.out",
+        }, "-=1.10");
+      }
+
+      // 8. Frame head bar (ID + coord) cascade
+      tl.to(headBar, { opacity: 1, y: 0, duration: 0.32, stagger: 0.08 }, "-=0.70");
+
+      // 9. Foot rows slide-in from left
+      tl.to(footRows, { opacity: 1, x: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" }, "-=0.35");
+
+      // 10. Body paragraphs + CTA
+      tl.to(bodyEls, { opacity: 1, y: 0, duration: 0.5, stagger: 0.07 }, "-=0.55");
+
+      // 11. Badges drop-in with overshoot
+      tl.to(badgeEls, {
+        opacity: 1, y: 0, scale: 1,
+        duration: 0.42, ease: "back.out(1.8)", stagger: 0.04,
+      }, "-=0.30");
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
+
+  const badges = [
+    { l: "RAFAEL SILVA",        accent: "shopify" },
+    { l: "HEAD DE TECNOLOGIA",  accent: ""        },
+    { l: "SHOPIFY DEVELOPMENT", accent: "shopify" },
+    { l: "PDPs",                accent: ""        },
+    { l: "LANDING PAGES",       accent: ""        },
+    { l: "DASHBOARDS",          accent: "cyan"    },
+    { l: "AUTOMAÇÕES",          accent: ""        },
+    { l: "AI SYSTEMS",          accent: "cyan"    },
+  ];
+
+  return (
+    <section ref={sectionRef} className="rs-section rs-about" id="sobre">
+      <div className="rs-container">
+        <div className="rs-about-grid">
+          <header className="rs-about-head reveal" data-reveal>
+            <div className="rs-section-eyebrow">
+              <span className="rs-section-num">[06]</span>
+              <span className="rs-section-line" />
+              <span>SOBRE — ABOUT THE BUILDER</span>
+            </div>
+            <h2
+              className="rs-section-title rs-about-title"
+              aria-label="Shopify na base. Dados, IA e automação como extensão da operação."
+            >
+              <span className="rs-about-t1" aria-hidden="true">Shopify na base.</span>
+              <br/>
+              <span className="rs-about-t2" aria-hidden="true">
+                <span className="rs-italic rs-ember rs-about-t2-em">Dados, IA e automação</span>
+                <span className="rs-about-t2-tail"> como extensão da operação.</span>
+              </span>
+            </h2>
+          </header>
+
+          <div className="rs-about-portrait reveal" data-reveal>
+            <div className="rs-about-frame">
+              <div className="rs-about-frame-head">
+                <span className="rs-about-frame-id">
+                  <span className="rs-status-dot" /> ID · 0046 / RS
+                </span>
+                <span className="rs-about-frame-coord">SUBJECT · ONLINE</span>
+              </div>
+
+              <div className="rs-about-photo">
+                <img
+                  src="uploads/rafilcx.png"
+                  alt="Retrato de Rafael Silva — Head de Tecnologia"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="rs-about-photo-grid"     aria-hidden="true" />
+                <span className="rs-about-photo-glow"     aria-hidden="true" />
+                <span className="rs-about-photo-vignette" aria-hidden="true" />
+                <span className="rs-about-photo-scan"     aria-hidden="true" />
+                <span className="rs-about-photo-scan-boot" aria-hidden="true" />
+                <span className="rs-about-photo-corner rs-about-photo-corner--tl" aria-hidden="true" />
+                <span className="rs-about-photo-corner rs-about-photo-corner--tr" aria-hidden="true" />
+                <span className="rs-about-photo-corner rs-about-photo-corner--bl" aria-hidden="true" />
+                <span className="rs-about-photo-corner rs-about-photo-corner--br" aria-hidden="true" />
+              </div>
+
+              <div className="rs-about-frame-foot">
+                <div className="rs-about-frame-foot-row">
+                  <span className="rs-about-frame-foot-k">SUBJECT</span>
+                  <span className="rs-about-frame-foot-v">RAFAEL SILVA</span>
+                </div>
+                <div className="rs-about-frame-foot-row">
+                  <span className="rs-about-frame-foot-k">ROLE</span>
+                  <span className="rs-about-frame-foot-v">HEAD DE TECNOLOGIA · TITTANIUM</span>
+                </div>
+                <div className="rs-about-frame-foot-row">
+                  <span className="rs-about-frame-foot-k">FOCUS</span>
+                  <span className="rs-about-frame-foot-v rs-about-frame-foot-accent">SHOPIFY · DATA · AI · AUTOMATION</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rs-about-body reveal" data-reveal>
+            <p className="rs-about-text">
+              Sou <span className="rs-strong">Rafael Silva</span>, Head de Tecnologia na Tittanium, e atuo no
+              desenvolvimento de e-commerces em Shopify com foco em páginas que vendem
+              melhor e estruturas mais bem conectadas.
+            </p>
+            <p className="rs-about-text">
+              Além de Shopify, trabalho com dashboards, automações e <span className="rs-italic">AI systems</span> para apoiar
+              decisão, acelerar processos e integrar dados, criação e operação.
+            </p>
+            <a
+              className="rs-btn rs-btn-ghost rs-about-cta"
+              href="https://wa.me/5548999255795?text=Ol%C3%A1%20Rafael!%20Vim%20pelo%20seu%20site%20e%20queria%20conversar%20sobre%20um%20projeto."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conversar sobre um projeto <ArrowRight />
+            </a>
+          </div>
+
+          <div className="rs-about-badges reveal" data-reveal>
+            {badges.map(b => (
+              <span
+                key={b.l}
+                className={`rs-chip rs-chip-sm${b.accent ? ` rs-chip-${b.accent}` : ""}`}
+              >
+                {b.accent && <span className="rs-chip-dot" />}
+                {b.l}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // ---------- TIMELINE ----------
 const Timeline = () => {
   const sectionRef = React.useRef(null);
@@ -688,7 +965,7 @@ const Timeline = () => {
     <section ref={sectionRef} className="rs-section rs-timeline" id="evolucao">
       <div className="rs-container">
         <SectionHeader
-          n="06"
+          n="07"
           eyebrow="TRAJETÓRIA"
           title={<>Do design ao <span className="rs-italic rs-ember">Shopify Developer</span><br/>com visão de operação.</>}
           kicker="Comecei no design e UX/UI, evoluí para Shopify e hoje uso dados, IA e automação como camadas para construir lojas e páginas mais estratégicas."
@@ -935,7 +1212,7 @@ const Stack = () => {
     <section ref={sectionRef} className="rs-section rs-stack" id="stack">
       <div className="rs-container">
         <SectionHeader
-          n="07"
+          n="08"
           eyebrow="STACK"
           title={<>Stack conectado<br/>à <span className="rs-italic rs-ember">operação real</span>.</>}
           kicker="Ferramentas usadas para construir, medir, automatizar e melhorar lojas Shopify com mais clareza comercial."
@@ -997,7 +1274,7 @@ const FinalCTA = () => (
       </svg>
 
       <span className="rs-section-eyebrow rs-cta-eyebrow">
-        <span className="rs-section-num">[08]</span>
+        <span className="rs-section-num">[09]</span>
         <span className="rs-section-line" />
         <span>CONVERSAR SOBRE UM PROJETO</span>
       </span>
@@ -1051,5 +1328,5 @@ const FinalCTA = () => (
 
 Object.assign(window, {
   DashSection, DashboardWidget, MiniLine, MiniFunnel, MiniDonut,
-  Projects, Timeline, Stack, FinalCTA,
+  Projects, About, Timeline, Stack, FinalCTA,
 });
