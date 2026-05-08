@@ -167,14 +167,23 @@ const Nav = () => {
       >
         <div className="rs-nav-drawer-backdrop" onClick={() => setMenuOpen(false)} />
         <div className="rs-nav-drawer-panel">
+          <div className="rs-nav-drawer-status">
+            <span className="rs-status-dot" /> Aberto a projetos
+          </div>
           <div className="rs-nav-drawer-links">
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
             ))}
           </div>
-          <div className="rs-nav-drawer-status">
-            <span className="rs-status-dot" /> Aberto a projetos
-          </div>
+          <a
+            href="https://wa.me/5548999255795?text=Ol%C3%A1%20Rafael!%20Vim%20pelo%20seu%20site%20e%20queria%20conversar%20sobre%20um%20projeto."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rs-nav-drawer-cta"
+            onClick={() => setMenuOpen(false)}
+          >
+            Conversar
+          </a>
         </div>
       </div>
     </React.Fragment>
