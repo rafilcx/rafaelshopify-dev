@@ -110,7 +110,7 @@
   z-index: 50;
   display: flex; align-items: center; gap: 8px;
   width: min(calc(100vw - 48px), 1160px);
-  padding: 8px 10px 8px 16px;
+  padding: 10px 12px 10px 18px;
   background: rgba(8, 11, 20, 0.7);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
@@ -124,9 +124,9 @@
 .rs-nav-brand { display: inline-flex; align-items: center; flex: 0 0 auto; padding-right: 18px; border-right: 1px solid var(--rule-300); }
 .rs-nav-logo-mark {
   display: block;
-  width: clamp(124px, 13vw, 162px);
+  width: clamp(188px, 18vw, 230px);
   height: auto;
-  max-height: 30px;
+  max-height: 43px;
 }
 .rs-nav-links {
   display: flex;
@@ -2102,11 +2102,11 @@
 .rs-footer-brand { display: flex; align-items: center; gap: 12px; flex-wrap: nowrap; }
 .rs-footer-logo-mark {
   display: block;
-  width: clamp(148px, 16vw, 188px);
+  width: clamp(260px, 24vw, 320px);
   height: auto;
-  max-height: 36px;
+  max-height: 60px;
 }
-.rs-footer-sub { font-size: 9px; margin-top: 2px; }
+.rs-footer-sub { font-size: 10px; margin-top: 4px; }
 .rs-footer-mid { text-align: center; flex: 1 1 auto; }
 .rs-footer-right { display: inline-flex; gap: 12px; align-items: center; }
 .rs-footer-right a { color: var(--fg-300); text-decoration: none; transition: color var(--dur-base); }
@@ -2834,7 +2834,7 @@
     padding-right: 0;
     border-right: none;
   }
-  .rs-nav-logo-mark { width: clamp(118px, 35vw, 142px); max-height: 28px; }
+  .rs-nav-logo-mark { width: clamp(148px, 41vw, 168px); max-height: 32px; }
   .rs-nav-burger {
     order: 1;
     margin-left: 0 !important;
