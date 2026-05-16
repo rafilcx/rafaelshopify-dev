@@ -136,7 +136,7 @@ const Nav = () => {
     <React.Fragment>
       <nav ref={navRef} className="rs-nav" style={{ opacity: scrolled ? 1 : 0.95 }}>
         <div className="rs-nav-brand">
-          <img className="rs-nav-logo-mark" src="/assets/LOGO_BRANCA.svg" alt="Rafael Shopify.dev" />
+          <img className="rs-nav-logo-mark" src="/assets/logo1.png" alt="Rafael Shopify.dev" />
         </div>
         <div className="rs-nav-links">
           {navLinks.map((l) => (
