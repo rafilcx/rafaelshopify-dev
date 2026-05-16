@@ -1297,6 +1297,9 @@ const FinalCTA = () => (
         <a className="rs-btn rs-btn-ghost rs-btn-lg" href="https://www.linkedin.com/in/rafaelsilva90/" target="_blank" rel="noopener noreferrer">
           Ver LinkedIn <ArrowRight />
         </a>
+        <a className="rs-btn rs-btn-ghost rs-btn-lg" href="mailto:contato@rafaelshopify.dev">
+          Enviar email <ArrowRight />
+        </a>
       </div>
 
       <div className="rs-cta-meta">
@@ -1319,7 +1322,9 @@ const FinalCTA = () => (
           </div>
         </div>
         <div className="rs-footer-mid">© 2026 · Lojas Shopify com mais clareza comercial, estrutura e operação conectada.</div>
-        <div className="rs-footer-right" aria-hidden="true"></div>
+        <div className="rs-footer-right">
+          <a href="mailto:contato@rafaelshopify.dev">contato@rafaelshopify.dev</a>
+        </div>
       </div>
     </footer>
   </section>
