@@ -1312,9 +1312,8 @@ const FinalCTA = () => (
       <div className="rs-container rs-footer-row">
         <div className="rs-footer-left">
           <div className="rs-footer-brand">
-            <div className="rs-footer-logo">R</div>
             <div>
-              <div className="rs-footer-name">RAFAEL SILVA</div>
+              <img className="rs-footer-logo-mark" src="/assets/LOGO_BRANCA.svg" alt="Rafael Shopify.dev" />
               <div className="rs-footer-sub">SHOPIFY DEVELOPER · EXPERIÊNCIA COMERCIAL · OPERAÇÃO</div>
             </div>
           </div>
